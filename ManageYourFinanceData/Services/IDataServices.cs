@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManageYourFinance.Data.Services
 {
-    interface IDataServices<T>
+    public interface IDataServices<T>
     {
         void Add(T data);
         T Get(int id);
