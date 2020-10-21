@@ -7,8 +7,8 @@
     <ProjectGuid>{7BDBC2A0-B401-42D7-964B-6C06F22D014A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ManageYourFinanceData</RootNamespace>
-    <AssemblyName>ManageYourFinanceData</AssemblyName>
+    <RootNamespace>ManageYourFinance.Data</RootNamespace>
+    <AssemblyName>ManageYourFinance.Data</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -35,6 +35,7 @@
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,13 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbAccess\DatabaseAcces.cs" />
+    <Compile Include="DbAccess\DatabaseType.cs" />
+    <Compile Include="Models\Accounts.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Payee.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Transactions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IDataServices.cs" />
+    <Compile Include="Services\SqlDataServices.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DbAccess\" />
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
