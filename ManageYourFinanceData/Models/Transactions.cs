@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManageYourFinance.Data.Models
 {
-    class Transactions
+    public class Transactions
     {
         public int ID { get; set; }
         public string Date { get; set; }

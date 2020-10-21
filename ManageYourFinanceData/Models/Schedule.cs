@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManageYourFinance.Data.Models
 {
-    class Schedule
+    public class Schedule
     {
         public int ID { get; set; }
         public int AccountsID { get; set; }

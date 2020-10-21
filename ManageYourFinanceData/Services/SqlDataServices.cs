@@ -23,7 +23,7 @@ namespace ManageYourFinance.Data.Services
             db = DatabaseAcces.DbConnection(DatabaseType.Sql);
         }
 
-        public void Add<T>(T data)
+        public void Add(T data)
         {
             string sql = $"INSERT INTO dbo.{instanceType.Name} ({GeneratePropertyString()}) VALUES({GeneratePropertyValuesString()})";
             db.Execute(sql, data);
@@ -35,7 +35,7 @@ namespace ManageYourFinance.Data.Services
             db.Execute(sql, new { id = id });
         }
 
-        public void Edit<T1>(int id, T1 data)
+        public void Edit(int id, T data)
         {
             string sql = $"UPDATE dbo.{instanceType.Name} SET {GeneratePropertyEditString()} WHERE ID = @id";
             db.Execute(sql, data);

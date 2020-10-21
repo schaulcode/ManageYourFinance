@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageYourFinance.App", "ManageYourFinance.App\ManageYourFinance.App.csproj", "{AE79CF03-BD58-4FE9-9076-FB47F2B94D5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageYourFinanceData", "ManageYourFinanceData\ManageYourFinanceData.csproj", "{7BDBC2A0-B401-42D7-964B-6C06F22D014A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManageYourFinance.Data", "ManageYourFinanceData\ManageYourFinance.Data.csproj", "{7BDBC2A0-B401-42D7-964B-6C06F22D014A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
