@@ -41,12 +41,20 @@ namespace ManageYourFinance.App.Controllers
         // GET: Accounts/Create
         public ActionResult Create()
         {
+            List<SelectListItem> selectList = new List<SelectListItem>()
+            {
+                new SelectListItem { Text = "Credit Card", Value = "Credit Card" },
+                new SelectListItem { Text = "Cash", Value ="Cash"},
+                new SelectListItem { Text = "Bank Account", Value = "Bank Account"},
+                new SelectListItem { Text = "Other Account", Value = "Other Account"}
+            };
+            ViewBag.AccountType = selectList;
             return View();
         }
 
         // POST: Accounts/Create
         [HttpPost]
-        public ActionResult Create([Bind (Include = "Name,Type,Active,IncludeTotal,OpeningBalance")] Accounts data)
+        public ActionResult Create([Bind(Include = "Name,Type,Active,IncludeTotal,OpeningBalance")] Accounts data)
         {
             try
             {
@@ -57,7 +65,7 @@ namespace ManageYourFinance.App.Controllers
             catch
             {
                 ViewBag.Message = "An Error occured your entry hasn't been saved";
-                return View(data);
+                return RedirectToAction("Index");
             }
         }
 
@@ -66,6 +74,15 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Accounts(data);
+            List<SelectListItem> selectList = new List<SelectListItem>()
+            {
+                new SelectListItem { Text = "Credit Card", Value = "Credit Card" },
+                new SelectListItem { Text = "Cash", Value ="Cash"},
+                new SelectListItem { Text = "Bank Account", Value = "Bank Account"},
+                new SelectListItem { Text = "Other Account", Value = "Other Account"}
+            };
+            selectList.Find(e => e.Value == model.Type).Selected = true;
+            ViewBag.AccountType = selectList;
             return View(model);
         }
 

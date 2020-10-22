@@ -49,6 +49,7 @@
     <Compile Include="DbAccess\DatabaseType.cs" />
     <Compile Include="Models\Accounts.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DataTypes\AccountsType.cs" />
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Transactions.cs" />
