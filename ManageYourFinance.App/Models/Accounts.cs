@@ -14,7 +14,7 @@ namespace ManageYourFinance.App.Models
         public bool Active { get; set; }
         public bool IncludeTotal { get; set; }
         public int OpeningBalance { get; set; }
-        public List<Transactions> Transactions { get; set; }
+        public List<Transactions> Transactions { get; set; } = new List<Transactions>();
 
         public Accounts()
         {

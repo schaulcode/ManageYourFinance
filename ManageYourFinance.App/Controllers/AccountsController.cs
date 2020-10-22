@@ -30,6 +30,11 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Accounts(data);
+            var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(id, typeof(Accounts));
+            foreach (var item in transactionsData)
+            {
+                model.Transactions.Add(new Transactions(item));
+            }
             return View(model);
         }
 
@@ -41,7 +46,7 @@ namespace ManageYourFinance.App.Controllers
 
         // POST: Accounts/Create
         [HttpPost]
-        public ActionResult Create([Bind (Include = "Name,Type,Amount,IncludeTotal,OpeningBalance")] Accounts data)
+        public ActionResult Create([Bind (Include = "Name,Type,Active,IncludeTotal,OpeningBalance")] Accounts data)
         {
             try
             {
@@ -66,7 +71,7 @@ namespace ManageYourFinance.App.Controllers
 
         // POST: Accounts/Edit/5
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "ID,Name,Type,Amount,IncludeTotal,OpeningBalance")] Accounts data)
+        public ActionResult Edit([Bind(Include = "ID,Name,Type,Active,IncludeTotal,OpeningBalance")] Accounts data)
         {
             try
             {

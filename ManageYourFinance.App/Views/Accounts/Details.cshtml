@@ -51,6 +51,32 @@
         </dd>
 
     </dl>
+    @{ 
+        var transaction = Model.Transactions.First();
+    } 
+<table class="table">
+    <tr>
+        <td>@Html.DisplayNameFor(model => transaction.Payee)</td>
+        <td>@Html.DisplayNameFor(model => transaction.Category)</td>
+        <td>@Html.DisplayNameFor(model => transaction.Date)</td>
+        <td>@Html.DisplayNameFor(model => transaction.Amount)</td>
+        <td>@Html.DisplayNameFor(model => transaction.Memo)</td>
+        <td>@Html.DisplayNameFor(model => transaction.Tag)</td>
+        <td>@Html.DisplayNameFor(model => transaction.Reference)</td>
+    </tr>
+    @foreach (var item in Model.Transactions)
+    {
+    <tr>
+        <td>@Html.DisplayFor(model => item.Payee)</td>
+        <td>@Html.DisplayFor(model => item.Category)</td>
+        <td>@Html.DisplayFor(model => item.Date)</td>
+        <td>@Html.DisplayFor(model => item.Amount)</td>
+        <td>@Html.DisplayFor(model => item.Memo)</td>
+        <td>@Html.DisplayFor(model => item.Tag)</td>
+        <td>@Html.DisplayFor(model => item.Reference)</td>
+    </tr>
+    }
+</table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |

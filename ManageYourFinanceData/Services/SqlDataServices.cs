@@ -47,9 +47,13 @@ namespace ManageYourFinance.Data.Services
             return db.QueryFirst<T>(sql, new { id = id });
         }
 
-        public List<T> GetAll()
+        public List<T> GetAll(int? id = null, Type relationDb = null)
         {
             string sql = $"SELECT * FROM dbo.{instanceType.Name}";
+            if (id.HasValue && relationDb !=  null)
+            {
+                sql += $" WHERE {relationDb.Name}ID = {id}";
+            }
             return db.Query<T>(sql).ToList();
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManageYourFinance.Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +14,9 @@ namespace ManageYourFinance.App.Models
         public string Tag { get; set; }
         public string Reference { get; set; }
         public string Memo { get; set; }
-        public int AccountsID { get; set; }
-        public int CategoryID { get; set; }
-        public int PayeeID { get; set; }
+        public string Accounts { get; set; }
+        public string Category { get; set; }
+        public string Payee { get; set; }
         public int ScheduleID { get; set; }
         public Transactions()
         {
@@ -29,9 +30,9 @@ namespace ManageYourFinance.App.Models
             this.Reference = data.Reference;
             this.Memo = data.Memo;
             this.Tag = data.Tag;
-            this.AccountsID = data.AccountsID;
-            this.CategoryID = data.CategoryID;
-            this.PayeeID = data.PayeeID;
+            this.Accounts = new SqlDataServices<Data.Models.Accounts>().Get(data.AccountsID).Name;
+            this.Category = new SqlDataServices<Data.Models.Category>().Get(data.CategoryID).Name;
+            this.Payee = new SqlDataServices<Data.Models.Payee>().Get(data.PayeeID).Name;
             this.ScheduleID = data.ScheduleID;
         }
         public Data.Models.Transactions Reversemapper()
@@ -44,9 +45,9 @@ namespace ManageYourFinance.App.Models
                 Reference = this.Reference,
                 Memo = this.Memo,
                 Tag = this.Tag,
-                AccountsID = this.AccountsID,
-                CategoryID = this.CategoryID,
-                PayeeID = this.PayeeID,
+                //AccountsID = this.AccountsID,
+                //CategoryID = this.CategoryID,
+                //PayeeID = this.PayeeID,
                 ScheduleID = this.ScheduleID
             };
         }
