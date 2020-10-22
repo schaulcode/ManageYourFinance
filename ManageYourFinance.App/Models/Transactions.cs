@@ -17,6 +17,9 @@ namespace ManageYourFinance.App.Models
         public string Accounts { get; set; }
         public string Category { get; set; }
         public string Payee { get; set; }
+        public int AccountsID { get; set; }
+        public int CategoryID { get; set; }
+        public int PayeeID { get; set; }
         public int ScheduleID { get; set; }
         public Transactions()
         {
@@ -45,9 +48,9 @@ namespace ManageYourFinance.App.Models
                 Reference = this.Reference,
                 Memo = this.Memo,
                 Tag = this.Tag,
-                //AccountsID = this.AccountsID,
-                //CategoryID = this.CategoryID,
-                //PayeeID = this.PayeeID,
+                AccountsID = this.AccountsID,
+                CategoryID = this.CategoryID,
+                PayeeID = this.PayeeID,
                 ScheduleID = this.ScheduleID
             };
         }
