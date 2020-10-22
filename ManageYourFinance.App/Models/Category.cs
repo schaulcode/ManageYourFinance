@@ -11,8 +11,8 @@ namespace ManageYourFinance.App.Models
         public string Name { get; set; }
         public string Type { get; set; }
         public bool Active { get; set; }
-        public List<Payee> Payees { get; set; }
-        public List<Transactions> Transactions { get; set; }
+        public List<Payee> Payees { get; set; } = new List<Payee>();
+        public List<Transactions> Transactions { get; set; } = new List<Transactions>();
 
         public Category()
         {
@@ -25,9 +25,9 @@ namespace ManageYourFinance.App.Models
             this.Type = data.Type;
             this.Active = data.Active;
         }
-    public Data.Models.Accounts ReverseMapper()
+    public Data.Models.Category ReverseMapper()
         {
-            return new Data.Models.Accounts
+            return new Data.Models.Category
             {
                 ID = this.ID,
                 Name = this.Name,
