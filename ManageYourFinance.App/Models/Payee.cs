@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManageYourFinance.Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace ManageYourFinance.App.Models
         public string Name { get; set; }
         public bool Active { get; set; }
         public int CategoryID { get; set; }
-        public List<Transactions> Transactions { get; set; }
+        public string Category { get; set; }
+        public List<Transactions> Transactions { get; set; } = new List<Transactions>();
         public Payee()
         {
 
@@ -22,6 +24,7 @@ namespace ManageYourFinance.App.Models
             this.Name = data.Name;
             this.Active = data.Active;
             this.CategoryID = data.CategoryID;
+            this.Category = new SqlDataServices<Data.Models.Category>().Get(CategoryID).Name;
         }
         public Data.Models.Payee ReverseMapper()
         {

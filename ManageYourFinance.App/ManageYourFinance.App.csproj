@@ -123,6 +123,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PayeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +180,11 @@
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
+    <Content Include="Views\Payee\Create.cshtml" />
+    <Content Include="Views\Payee\Index.cshtml" />
+    <Content Include="Views\Payee\Details.cshtml" />
+    <Content Include="Views\Payee\Edit.cshtml" />
+    <Content Include="Views\Payee\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,4 +1,4 @@
-﻿@model ManageYourFinance.App.Models.Category
+﻿@model ManageYourFinance.App.Models.Payee
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Category</h4>
+    <h4>Payee</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,14 +19,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Active)
         </dt>
 
@@ -34,15 +26,23 @@
             @Html.DisplayFor(model => model.Active)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
     </dl>
     @{
-        var transaction = Model.Transactions.First();
+        var transaction = Model.Transactions.FirstOrDefault();
     }
     <h4>Transactions</h4>
     <table class="table">
         <tr>
-            <td>@Html.DisplayNameFor(model => transaction.Accounts)</td>
             <td>@Html.DisplayNameFor(model => transaction.Payee)</td>
+            <td>@Html.DisplayNameFor(model => transaction.Category)</td>
             <td>@Html.DisplayNameFor(model => transaction.Date)</td>
             <td>@Html.DisplayNameFor(model => transaction.Amount)</td>
             <td>@Html.DisplayNameFor(model => transaction.Memo)</td>
@@ -52,8 +52,8 @@
         @foreach (var item in Model.Transactions)
         {
             <tr>
-                <td>@Html.DisplayFor(model => item.Accounts)</td>
                 <td>@Html.DisplayFor(model => item.Payee)</td>
+                <td>@Html.DisplayFor(model => item.Category)</td>
                 <td>@Html.DisplayFor(model => item.Date)</td>
                 <td>@Html.DisplayFor(model => item.Amount)</td>
                 <td>@Html.DisplayFor(model => item.Memo)</td>
@@ -62,24 +62,8 @@
             </tr>
         }
     </table>
-    @{
-        var payee = Model.Payees.First();
-    }
-    <h4>Payee</h4>
-    <table class="table">
-        <tr>
-            <td>@Html.DisplayNameFor(model => payee.Name)</td>
-            <td>@Html.DisplayNameFor(model => payee.Active)</td>
-        </tr>
-        @foreach (var item in Model.Payees)
-        {
-            <tr>
-                <td>@Html.DisplayFor(model => item.Name)</td>
-                <td>@Html.DisplayFor(model => item.Active)</td>
-            </tr>
-        }
-    </table>
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
