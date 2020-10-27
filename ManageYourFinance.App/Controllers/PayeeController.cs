@@ -44,6 +44,7 @@ namespace ManageYourFinance.App.Controllers
         {
             var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
             List<SelectListItem> selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem { Text = "<a href = '../Category/Create'> Add new Category</a>" });
             foreach (var item in categorylist)
             {
                 selectList.Add(new SelectListItem { Text = item.Name, Value = item.ID.ToString() });
