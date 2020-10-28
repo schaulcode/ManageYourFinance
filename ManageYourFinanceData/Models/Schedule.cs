@@ -15,11 +15,11 @@ namespace ManageYourFinance.Data.Models
         public int Amount { get; set; }
         public string Frequency { get; set; }
         public string NextDueDay { get; set; }
-        public int TotalAmount { get; set; }
-        public int TotalCount { get; set; }
-        public DateTime EndsOnDate { get; set; }
-        public int AmountCount { get; set; }
-        public int CountCount { get; set; }
+        public int? TotalAmount { get; set; }
+        public int? TotalCount { get; set; }
+        public DateTime? EndsOnDate { get; set; }
+        public int? AmountCount { get; set; }
+        public int? CountCount { get; set; }
 
 
     }

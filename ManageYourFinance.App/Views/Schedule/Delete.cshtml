@@ -1,0 +1,112 @@
+﻿@model ManageYourFinance.App.Models.Schedule
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Schedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Accounts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accounts)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frequency)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Frequency)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextDueDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextDueDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndsOnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndsOnDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CountCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountCount)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

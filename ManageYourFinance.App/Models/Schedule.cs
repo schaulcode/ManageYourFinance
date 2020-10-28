@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManageYourFinance.Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,14 +12,18 @@ namespace ManageYourFinance.App.Models
         public int AccountsID { get; set; }
         public int CategoryID { get; set; }
         public int PayeeID { get; set; }
+        public string Accounts { get; set; }
+        public string Category { get; set; }
+        public string Payee { get; set; }
         public int Amount { get; set; }
         public string Frequency { get; set; }
         public string NextDueDay { get; set; }
-        public int TotalAmount { get; set; }
-        public int TotalCount { get; set; }
-        public DateTime EndsOnDate { get; set; }
-        public int AmountCount { get; set; }
-        public int CountCount { get; set; }
+        public int? TotalAmount { get; set; }
+        public int? TotalCount { get; set; }
+        public DateTime? EndsOnDate { get; set; }
+        public int? AmountCount { get; set; }
+        public int? CountCount { get; set; }
+        public List<Transactions> Transactions { get; set; } = new List<Transactions>();
         public Schedule()
         {
 
@@ -29,6 +34,9 @@ namespace ManageYourFinance.App.Models
             this.AccountsID = data.AccountsID;
             this.CategoryID = data.CategoryID;
             this.PayeeID = data.PayeeID;
+            this.Accounts = new SqlDataServices<Data.Models.Accounts>().Get(data.AccountsID).Name;
+            this.Category = new SqlDataServices<Data.Models.Category>().Get(data.CategoryID).Name;
+            this.Payee = new SqlDataServices<Data.Models.Payee>().Get(data.PayeeID).Name;
             this.Amount = data.Amount;
             this.Frequency = data.Frequency;
             this.NextDueDay = data.NextDueDay;
