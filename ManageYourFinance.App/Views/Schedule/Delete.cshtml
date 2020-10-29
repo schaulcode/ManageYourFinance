@@ -9,104 +9,109 @@
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Schedule</h4>
+    @{ if (TempData["errorMessage"] != null)
+        {
+            <div class="alert alert-warning">@TempData["errorMessage"]</div>
+        }}
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
+    <dl class="row">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Accounts)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Accounts)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Category)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Category)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Payee)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Payee)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Amount)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Amount)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Frequency)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Frequency)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.NextDueDay)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.NextDueDay)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.TotalAmount)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.TotalAmount)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.TotalCount)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.TotalCount)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.EndsOnDate)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.EndsOnDate)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.AmountCount)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.AmountCount)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.CountCount)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.CountCount)
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
         </div>
     }
 </div>

@@ -7,87 +7,92 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { }, htmlAttributes: new { @class = "btn btn-secondary" })
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Accounts)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Payee)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Amount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Frequency)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NextDueDay)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalAmount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndsOnDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AmountCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountCount)
-        </th>
-        <th></th>
-    </tr>
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Accounts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Payee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Frequency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextDueDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndsOnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AmountCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Accounts)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Payee)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Frequency)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NextDueDay)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalAmount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndsOnDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AmountCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CountCount)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Accounts)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Frequency)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NextDueDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndsOnDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AmountCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountCount)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-info btn-sm" }) 
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary btn-sm" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-info btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
