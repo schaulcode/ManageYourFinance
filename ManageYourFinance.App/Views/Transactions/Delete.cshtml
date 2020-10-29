@@ -10,68 +10,68 @@
 <div>
     <h4>Transactions</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
+    <dl class="row">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Date)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Date)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Amount)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Amount)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Tag)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Tag)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Reference)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Reference)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Memo)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Memo)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Accounts)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Accounts)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Category)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Category)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Payee)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Payee)
         </dd>
 
@@ -81,8 +81,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
         </div>
     }
 </div>

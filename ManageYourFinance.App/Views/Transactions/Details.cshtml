@@ -7,76 +7,78 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Transactions</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+    <div class="jumbotron">
+        <h4>Transactions</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Date)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Amount)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Amount)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Amount)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Amount)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tag)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Tag)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tag)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Tag)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Reference)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Reference)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Reference)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Reference)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Memo)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Memo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Memo)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Memo)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Accounts)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Accounts)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Accounts)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Accounts)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Category)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Payee)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Payee)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Payee)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Payee)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-info" }) 
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
 </p>
