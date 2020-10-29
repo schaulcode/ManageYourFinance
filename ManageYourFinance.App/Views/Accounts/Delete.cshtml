@@ -14,44 +14,44 @@
             <div class="alert alert-warning">@TempData["errorMessage"]</div>
         }}
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
+    <dl class="row">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Name)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Type)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Type)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Active)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Active)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.IncludeTotal)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.IncludeTotal)
         </dd>
 
-        <dt>
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.OpeningBalance)
         </dt>
 
-        <dd>
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.OpeningBalance)
         </dd>
 
@@ -61,9 +61,9 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-action no-color ">
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
         </div>
     }
 </div>

@@ -4,81 +4,87 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="text-center">Details</h2>
 
 <div>
-    <h4>Accounts</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="jumbotron">
+        <h4>Accounts</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Type)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Type)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Active)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Active)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Active)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IncludeTotal)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.IncludeTotal)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IncludeTotal)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.IncludeTotal)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.OpeningBalance)
-        </dt>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.OpeningBalance)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.OpeningBalance)
-        </dd>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.OpeningBalance)
+            </dd>
 
-    </dl>
+        </dl>
+    </div>
     @{ 
         var transaction = Model.Transactions.First();
     } 
-<table class="table">
-    <tr>
-        <td>@Html.DisplayNameFor(model => transaction.Payee)</td>
-        <td>@Html.DisplayNameFor(model => transaction.Category)</td>
-        <td>@Html.DisplayNameFor(model => transaction.Date)</td>
-        <td>@Html.DisplayNameFor(model => transaction.Amount)</td>
-        <td>@Html.DisplayNameFor(model => transaction.Memo)</td>
-        <td>@Html.DisplayNameFor(model => transaction.Tag)</td>
-        <td>@Html.DisplayNameFor(model => transaction.Reference)</td>
-    </tr>
-    @foreach (var item in Model.Transactions)
-    {
-    <tr>
-        <td>@Html.DisplayFor(model => item.Payee)</td>
-        <td>@Html.DisplayFor(model => item.Category)</td>
-        <td>@Html.DisplayFor(model => item.Date)</td>
-        <td>@Html.DisplayFor(model => item.Amount)</td>
-        <td>@Html.DisplayFor(model => item.Memo)</td>
-        <td>@Html.DisplayFor(model => item.Tag)</td>
-        <td>@Html.DisplayFor(model => item.Reference)</td>
-    </tr>
-    }
+<table class="table table-hover table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => transaction.Payee)</th>
+            <th>@Html.DisplayNameFor(model => transaction.Category)</th>
+            <th>@Html.DisplayNameFor(model => transaction.Date)</th>
+            <th>@Html.DisplayNameFor(model => transaction.Amount)</th>
+            <th>@Html.DisplayNameFor(model => transaction.Memo)</th>
+            <th>@Html.DisplayNameFor(model => transaction.Tag)</th>
+            <th>@Html.DisplayNameFor(model => transaction.Reference)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Transactions)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.Payee)</td>
+                <td>@Html.DisplayFor(model => item.Category)</td>
+                <td>@Html.DisplayFor(model => item.Date)</td>
+                <td>@Html.DisplayFor(model => item.Amount)</td>
+                <td>@Html.DisplayFor(model => item.Memo)</td>
+                <td>@Html.DisplayFor(model => item.Tag)</td>
+                <td>@Html.DisplayFor(model => item.Reference)</td>
+            </tr>
+        }
+    </tbody>
 </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-info" }) 
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
 </p>

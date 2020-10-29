@@ -5,6 +5,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    padding-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -21,4 +22,8 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+/*Override the default bootstrap background color when hovering over a table row*/
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.175);
 }
