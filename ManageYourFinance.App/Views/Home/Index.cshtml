@@ -1,13 +1,83 @@
 ﻿@{
+    Layout = null;
     ViewBag.Title = "Home Page";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container body-content">
+        <div class="jumbotron">
+            <h1 class="text-center display-2">Manage Your Finance</h1>
+        </div>
 
-<div class="jumbotron">
-    <h1>MAnage Your Finance</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+        <div class="row mb-3">
+            <div class="col">
+                <a class="text-reset text-decoration-none" href="~/Accounts">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title text-center text-light">Accounts</h3>
+                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.AccountsCount</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a class="text-reset text-decoration-none" href="~/Category">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title text-center text-light">Category</h3>
+                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.CategoryCount</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a class="text-reset text-decoration-none" href="~/Payee">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title text-center text-light">Payee</h3>
+                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.PayeeCount</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a class="text-reset text-decoration-none" href="~/Schedule">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title text-center text-light">Schedule</h3>
+                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.ScheduleCount</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a class="text-reset text-decoration-none" href="~/Transactios">
+                    <div class="card bg-secondary">
+                        <div class="card-body">
+                            <h3 class="card-title text-center text-light">Transaactions</h3>
+                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.TransactionsCount</span></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
 
-<div class="row">
-   
-</div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

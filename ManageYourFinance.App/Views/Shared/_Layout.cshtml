@@ -13,13 +13,15 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("Manage your Finance", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
              
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Accounts", "Index", "Accounts", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Category", "Index", "Category", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Payee", "Index", "Payee", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Schedule", "Index", "Schedule", new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Transactions", "Index", "Transactions", new { @class = "nav-link" })</li>
                 </ul>
             </div> 
         </div>
