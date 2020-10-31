@@ -15,7 +15,7 @@ namespace ManageYourFinance.Data.Models
         public string Type { get; set; } 
         public bool Active { get; set; }
         public bool IncludeTotal { get; set; }
-        public int OpeningBalance { get; set; }
+        public int? OpeningBalance { get; set; }
 
     }
 }

@@ -43,24 +43,17 @@ namespace ManageYourFinance.App.Controllers
         public ActionResult Create()
         {
             var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            selectList.Add(new SelectListItem { Text = "<a href = '../Category/Create'> Add new Category</a>" });
-            foreach (var item in categorylist)
-            {
-                selectList.Add(new SelectListItem { Text = item.Name, Value = item.ID.ToString() });
-            }
-            ViewBag.Category = selectList;
+            ViewBag.Category = categorylist;
             return View();
         }
 
         // POST: Payee/Create
         [HttpPost]
-        public ActionResult Create(Payee data, string category)
+        public ActionResult Create(Payee data)
         {
             try
             {
                 // TODO: Add insert logic here
-                data.CategoryID = int.Parse(category);
                 db.Add(data.ReverseMapper());
 
                 return RedirectToAction("Index");
@@ -84,18 +77,18 @@ namespace ManageYourFinance.App.Controllers
                 selectList.Add(new SelectListItem { Text = item.Name, Value = item.ID.ToString() });
             }
             selectList.Find(e => e.Value == model.CategoryID.ToString()).Selected = true;
-            ViewBag.Category = selectList;
+            ViewBag.Category = categorylist;
+            ViewBag.Selected = categorylist.First(e => e.ID == model.CategoryID);
             return View(model);
         }
 
         // POST: Payee/Edit/5
         [HttpPost]
-        public ActionResult Edit(Payee data, string category)
+        public ActionResult Edit(Payee data)
         {
             try
             {
                 // TODO: Add update logic here
-                data.CategoryID = int.Parse(category);
                 db.Edit(data.ID, data.ReverseMapper());
                 return RedirectToAction("Index");
             }

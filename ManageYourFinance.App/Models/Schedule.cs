@@ -1,6 +1,7 @@
 ﻿using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,14 +10,23 @@ namespace ManageYourFinance.App.Models
     public class Schedule
     {
         public int ID { get; set; }
+        [Required]
+        [Display(Name ="Account")]
         public int AccountsID { get; set; }
+        [Required]
+        [Display(Name ="Category")]
         public int CategoryID { get; set; }
+        [Required]
+        [Display(Name ="Payee")]
         public int PayeeID { get; set; }
         public string Accounts { get; set; }
         public string Category { get; set; }
         public string Payee { get; set; }
+        [Required]
         public int Amount { get; set; }
+        [Required]
         public string Frequency { get; set; }
+        [Required]
         public string NextDueDay { get; set; }
         public int? TotalAmount { get; set; }
         public int? TotalCount { get; set; }

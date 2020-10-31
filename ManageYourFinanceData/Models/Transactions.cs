@@ -17,6 +17,6 @@ namespace ManageYourFinance.Data.Models
         public int AccountsID { get; set; }
         public int CategoryID { get; set; }
         public int PayeeID { get; set; }
-        public int ScheduleID { get; set; }
+        public int? ScheduleID { get; set; }
     }
 }

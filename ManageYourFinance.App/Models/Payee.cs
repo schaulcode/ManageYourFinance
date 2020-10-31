@@ -1,6 +1,8 @@
 ﻿using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,8 +11,12 @@ namespace ManageYourFinance.App.Models
     public class Payee
     {
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public bool Active { get; set; }
+        [Required]
+        [Display (Name = "Category")]
         public int CategoryID { get; set; }
         public string Category { get; set; }
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();

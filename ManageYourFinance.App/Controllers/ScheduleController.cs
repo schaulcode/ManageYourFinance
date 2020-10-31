@@ -32,22 +32,19 @@ namespace ManageYourFinance.App.Controllers
         // GET: Schedule/Create
         public ActionResult Create()
         {
-            ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll().Select(e => new SelectListItem { Text = e.Name, Value = e.ID.ToString() });
-            ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll().Select(e => new SelectListItem { Text = e.Name, Value = e.ID.ToString() });
-            ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll().Select(e => new SelectListItem { Text = e.Name, Value = e.ID.ToString() });
+            ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
+            ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll();
+            ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll();
             return View();
         }
 
         // POST: Schedule/Create
         [HttpPost]
-        public ActionResult Create(Schedule data, string accounts, string category, string payee)
+        public ActionResult Create(Schedule data )
         {
             try
             {
                 // TODO: Add insert logic here
-                data.AccountsID = int.Parse(accounts);
-                data.CategoryID = int.Parse(category);
-                data.PayeeID = int.Parse(payee);
                 db.Add(data.ReverseMapper());
                 return RedirectToAction("Index");
             }
@@ -64,12 +61,12 @@ namespace ManageYourFinance.App.Controllers
             var data = db.Get(id);
             var model = new Schedule(data);
 
-            var accounts = new SqlDataServices<Data.Models.Accounts>().GetAll().Select(e => new SelectListItem { Text = e.Name, Value = e.ID.ToString() });
-            var category = new SqlDataServices<Data.Models.Category>().GetAll().Select(e => new SelectListItem { Text = e.Name, Value = e.ID.ToString() });
-            var payee = new SqlDataServices<Data.Models.Payee>().GetAll().Select(e => new SelectListItem { Text = e.Name, Value = e.ID.ToString() });
-            accounts.First(e => e.Value == data.AccountsID.ToString()).Selected = true;
-            category.First(e => e.Value == data.CategoryID.ToString()).Selected = true;
-            payee.First(e => e.Value == data.PayeeID.ToString()).Selected = true;
+            var accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
+            var category = new SqlDataServices<Data.Models.Category>().GetAll();
+            var payee = new SqlDataServices<Data.Models.Payee>().GetAll();
+            ViewBag.AccountsSelected = accounts.First(e => e.ID == model.AccountsID);
+            ViewBag.CategorySelected = category.First(e => e.ID == model.CategoryID);
+            ViewBag.PayeeSelected = payee.First(e => e.ID == model.PayeeID);
             ViewBag.Accounts = accounts;
             ViewBag.Category = category;
             ViewBag.Payee = payee;
@@ -78,15 +75,11 @@ namespace ManageYourFinance.App.Controllers
 
         // POST: Schedule/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Schedule data, string accounts, string category, string payee)
+        public ActionResult Edit(int id, Schedule data)
         {
             try
             {
                 // TODO: Add update logic here
-
-                data.AccountsID = int.Parse(accounts);
-                data.CategoryID = int.Parse(category);
-                data.PayeeID = int.Parse(payee);
                 db.Edit(id, data.ReverseMapper());
                 return RedirectToAction("Index");
             }

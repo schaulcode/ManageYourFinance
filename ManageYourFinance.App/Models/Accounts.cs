@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using ManageYourFinance.Data.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace ManageYourFinance.App.Models
 {
     public class Accounts
     {
+        
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Type { get; set; }
+        [Required]
         public bool Active { get; set; }
+        [Required]
         public bool IncludeTotal { get; set; }
-        public int OpeningBalance { get; set; }
+        public int? OpeningBalance { get; set; }
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
 
         public Accounts()
