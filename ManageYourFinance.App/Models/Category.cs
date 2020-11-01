@@ -29,7 +29,7 @@ namespace ManageYourFinance.App.Models
             this.Type = data.Type;
             this.Active = data.Active;
         }
-    public Data.Models.Category ReverseMapper()
+        public Data.Models.Category ReverseMapper()
         {
             return new Data.Models.Category
             {
@@ -40,4 +40,11 @@ namespace ManageYourFinance.App.Models
             };
         }
     }
+    
+    public class CategoryType
+    {
+        public string Value { get; set; }
+        public string Name { get; set; }
+    }
+
 } 
