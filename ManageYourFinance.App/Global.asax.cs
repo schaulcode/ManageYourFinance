@@ -16,6 +16,7 @@ namespace ManageYourFinance.App
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(HelperLibary.DateRangeAttribute), typeof(RangeAttributeAdapter));
         }
     }
 }

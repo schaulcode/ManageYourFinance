@@ -9,7 +9,7 @@ namespace ManageYourFinance.Data.Models
     public class Transactions
     {
         public int ID { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public int Amount { get; set; }
         public string Tag { get; set; }
         public string Reference { get; set; }

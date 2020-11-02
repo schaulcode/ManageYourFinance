@@ -11,7 +11,10 @@ namespace ManageYourFinance.App.Models
     {
         public int ID { get; set; }
         [Required]
-        public string Date { get; set; }
+        [Range(typeof(DateTime), "01/01/2000", "31/12/2050", ErrorMessage = "The Date has to be between {1:dd/MM/yyyy} and {2:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString ="{0:dd/MM/yyy}")]
+        [DataType(DataType.Date)]
+        public DateTime Date { get; set; }
         [Required]
         public int Amount { get; set; }
         public string Tag { get; set; }

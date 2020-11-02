@@ -64,7 +64,7 @@
     <div class="form-group row">
         @Html.LabelFor(model => model.NextDueDay, htmlAttributes: new { @class = "col-form-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.NextDueDay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.NextDueDay, new { htmlAttributes = new { @class = "form-control", Value = Model.NextDueDay.ToString("yyyy-MM-dd") } })
             @Html.ValidationMessageFor(model => model.NextDueDay, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -88,7 +88,7 @@
     <div class="form-group row">
         @Html.LabelFor(model => model.EndsOnDate, htmlAttributes: new { @class = "col-form-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.EndsOnDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.EndsOnDate, new { htmlAttributes = new { @class = "form-control", Value = Model.EndsOnDate?.ToString("yyyy-MM-dd") } })
             @Html.ValidationMessageFor(model => model.EndsOnDate, "", new { @class = "text-danger" })
         </div>
     </div>

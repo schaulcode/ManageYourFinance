@@ -1,7 +1,9 @@
-﻿using ManageYourFinance.Data.Enums;
+﻿using ManageYourFinance.App.HelperLibary;
+using ManageYourFinance.Data.Enums;
 using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -28,9 +30,19 @@ namespace ManageYourFinance.App.Models
         [Required]
         public Frequency Frequency { get; set; }
         [Required]
-        public string NextDueDay { get; set; }
+        [DateRange(ErrorMessage = "Date must be between {1:dd/MM/yyyy} and {2:dd/MM/yyyy} ")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyy}")]
+        [DataType(DataType.Date)]
+        [DisplayName("Next Due Day")]
+        public DateTime NextDueDay { get; set; }
+        [DisplayName("Total Amount")]
         public int? TotalAmount { get; set; }
+        [DisplayName("Total Count")]
         public int? TotalCount { get; set; }
+        [DisplayName("Ends On Date")]
+        [DateRange(ErrorMessage = "Date must be between {1:dd/MM/yyyy} and {2:dd/MM/yyyy} ")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyy}")]
+        [DataType(DataType.Date)]
         public DateTime? EndsOnDate { get; set; }
         public int? AmountCount { get; set; }
         public int? CountCount { get; set; }

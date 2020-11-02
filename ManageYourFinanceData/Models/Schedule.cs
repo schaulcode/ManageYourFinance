@@ -15,7 +15,7 @@ namespace ManageYourFinance.Data.Models
         public int PayeeID { get; set; }
         public int Amount { get; set; }
         public Frequency Frequency { get; set; }
-        public string NextDueDay { get; set; }
+        public DateTime NextDueDay { get; set; }
         public int? TotalAmount { get; set; }
         public int? TotalCount { get; set; }
         public DateTime? EndsOnDate { get; set; }
