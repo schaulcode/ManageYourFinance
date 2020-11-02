@@ -35,6 +35,7 @@
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DbAccess\DatabaseAcces.cs" />
     <Compile Include="DbAccess\DatabaseType.cs" />
+    <Compile Include="Enums\Frequency.cs" />
     <Compile Include="Models\Accounts.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DataTypes\AccountsType.cs" />

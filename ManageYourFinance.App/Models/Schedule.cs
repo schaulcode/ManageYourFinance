@@ -1,4 +1,5 @@
-﻿using ManageYourFinance.Data.Services;
+﻿using ManageYourFinance.Data.Enums;
+using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -25,7 +26,7 @@ namespace ManageYourFinance.App.Models
         [Required]
         public int Amount { get; set; }
         [Required]
-        public string Frequency { get; set; }
+        public Frequency Frequency { get; set; }
         [Required]
         public string NextDueDay { get; set; }
         public int? TotalAmount { get; set; }

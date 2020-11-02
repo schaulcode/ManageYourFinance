@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManageYourFinance.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,14 +14,13 @@ namespace ManageYourFinance.Data.Models
         public int CategoryID { get; set; }
         public int PayeeID { get; set; }
         public int Amount { get; set; }
-        public string Frequency { get; set; }
+        public Frequency Frequency { get; set; }
         public string NextDueDay { get; set; }
         public int? TotalAmount { get; set; }
         public int? TotalCount { get; set; }
         public DateTime? EndsOnDate { get; set; }
         public int? AmountCount { get; set; }
         public int? CountCount { get; set; }
-
-
     }
+    
 }
