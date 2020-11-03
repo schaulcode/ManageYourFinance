@@ -53,36 +53,9 @@
 
         </dl>
     </div>
-    @{ 
-        var transaction = Model.Transactions.First();
-    } 
-<table class="table table-hover table-striped">
-    <thead class="thead-dark">
-        <tr>
-            <th>@Html.DisplayNameFor(model => transaction.Payee)</th>
-            <th>@Html.DisplayNameFor(model => transaction.Category)</th>
-            <th>@Html.DisplayNameFor(model => transaction.Date)</th>
-            <th>@Html.DisplayNameFor(model => transaction.Amount)</th>
-            <th>@Html.DisplayNameFor(model => transaction.Memo)</th>
-            <th>@Html.DisplayNameFor(model => transaction.Tag)</th>
-            <th>@Html.DisplayNameFor(model => transaction.Reference)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Transactions)
-        {
-            <tr>
-                <td>@Html.DisplayFor(model => item.Payee)</td>
-                <td>@Html.DisplayFor(model => item.Category)</td>
-                <td>@Html.DisplayFor(model => item.Date)</td>
-                <td>@Html.DisplayFor(model => item.Amount)</td>
-                <td>@Html.DisplayFor(model => item.Memo)</td>
-                <td>@Html.DisplayFor(model => item.Tag)</td>
-                <td>@Html.DisplayFor(model => item.Reference)</td>
-            </tr>
-        }
-    </tbody>
-</table>
+    @{
+        Html.RenderPartial("_Transactions", Model.Transactions);
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-info" }) 

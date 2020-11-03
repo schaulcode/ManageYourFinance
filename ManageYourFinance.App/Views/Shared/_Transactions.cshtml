@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ManageYourFinance.App.Models.Transactions>
+
+<table class="table table-hover table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Payee)</th>
+            <th>@Html.DisplayNameFor(model => model.Category)</th>
+            <th>@Html.DisplayNameFor(model => model.Date)</th>
+            <th>@Html.DisplayNameFor(model => model.Amount)</th>
+            <th>@Html.DisplayNameFor(model => model.Memo)</th>
+            <th>@Html.DisplayNameFor(model => model.Tag)</th>
+            <th>@Html.DisplayNameFor(model => model.Reference)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.Payee)</td>
+                <td>@Html.DisplayFor(model => item.Category)</td>
+                <td>@Html.DisplayFor(model => item.Date)</td>
+                <td>@Html.DisplayFor(model => item.Amount)</td>
+                <td>@Html.DisplayFor(model => item.Memo)</td>
+                <td>@Html.DisplayFor(model => item.Tag)</td>
+                <td>@Html.DisplayFor(model => item.Reference)</td>
+            </tr>
+        }
+    </tbody>
+</table>

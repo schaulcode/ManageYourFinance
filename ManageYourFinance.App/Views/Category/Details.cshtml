@@ -37,37 +37,13 @@
 
         </dl>
     </div>
-    @{
-        var transaction = Model.Transactions.First();
-    }
+   
     <h4>Transactions</h4>
-    <table class="table table-hover table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <td>@Html.DisplayNameFor(model => transaction.Accounts)</td>
-                <td>@Html.DisplayNameFor(model => transaction.Payee)</td>
-                <td>@Html.DisplayNameFor(model => transaction.Date)</td>
-                <td>@Html.DisplayNameFor(model => transaction.Amount)</td>
-                <td>@Html.DisplayNameFor(model => transaction.Memo)</td>
-                <td>@Html.DisplayNameFor(model => transaction.Tag)</td>
-                <td>@Html.DisplayNameFor(model => transaction.Reference)</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Transactions)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(model => item.Accounts)</td>
-                    <td>@Html.DisplayFor(model => item.Payee)</td>
-                    <td>@Html.DisplayFor(model => item.Date)</td>
-                    <td>@Html.DisplayFor(model => item.Amount)</td>
-                    <td>@Html.DisplayFor(model => item.Memo)</td>
-                    <td>@Html.DisplayFor(model => item.Tag)</td>
-                    <td>@Html.DisplayFor(model => item.Reference)</td>
-                </tr>
-            }
-            </tbody>
-    </table>
+
+    @{ 
+        Html.RenderPartial("_Transactions", Model.Transactions);
+    }
+    
     @{
         var payee = Model.Payees.FirstOrDefault();
     }
