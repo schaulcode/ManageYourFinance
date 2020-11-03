@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManageYourFinance.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,7 +13,8 @@ namespace ManageYourFinance.App.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Type { get; set; }
+        [Range(1,int.MaxValue,ErrorMessage ="Please Select a Type")]
+        public CategoryType Type { get; set; }
         [Required]
         public bool Active { get; set; }
         public List<Payee> Payees { get; set; } = new List<Payee>();
@@ -39,12 +41,6 @@ namespace ManageYourFinance.App.Models
                 Active = this.Active
             };
         }
-    }
-    
-    public class CategoryType
-    {
-        public string Value { get; set; }
-        public string Name { get; set; }
     }
 
 } 

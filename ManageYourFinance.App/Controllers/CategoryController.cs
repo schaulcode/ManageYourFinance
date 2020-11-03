@@ -44,19 +44,6 @@ namespace ManageYourFinance.App.Controllers
         // GET: Category/Create
         public ActionResult Create()
         {
-            ViewBag.Type = new List<Object>
-            {
-                new
-                {
-                    Value = "Income",
-                    Name = "Income"
-                },
-                new
-                {
-                    Value = "Expense",
-                    Name = "Expense"
-                }
-            };
             return View();
         }
 
@@ -82,22 +69,6 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Category(data);
-
-            var typeList = new List<CategoryType>
-            {
-                new CategoryType
-                {
-                    Value = "Income",
-                    Name = "Income"
-                },
-                new CategoryType
-                {
-                    Value = "Expense",
-                    Name = "Expense"
-                }
-            };
-            ViewBag.TypeList = typeList;
-            ViewBag.TypeSelected = typeList.First(e => e.Value == model.Type);
             return View(model);
         }
 
