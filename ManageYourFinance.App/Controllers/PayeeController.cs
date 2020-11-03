@@ -17,7 +17,7 @@ namespace ManageYourFinance.App.Controllers
         // GET: Payee
         public ActionResult Index()
         {
-            var data = db.GetAll();
+            var data = db.GetAll().OrderBy(e => e.Name);
             var model = new List<Payee>();
             foreach (var item in data)
             {

@@ -48,10 +48,10 @@
   <ItemGroup>
     <Compile Include="DbAccess\DatabaseAcces.cs" />
     <Compile Include="DbAccess\DatabaseType.cs" />
+    <Compile Include="Enums\AccountsType.cs" />
     <Compile Include="Enums\Frequency.cs" />
     <Compile Include="Models\Accounts.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\DataTypes\AccountsType.cs" />
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Transactions.cs" />

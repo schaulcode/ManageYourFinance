@@ -25,7 +25,7 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Schedule(data);
-            model.Transactions = new SqlDataServices<Data.Models.Transactions>().GetAll(model.ID, typeof(Schedule)).Select(e => new Transactions(e)).ToList();
+            model.Transactions = new SqlDataServices<Data.Models.Transactions>().GetAll(model.ID, typeof(Schedule)).Select(e => new Transactions(e)).OrderBy(e => e.Date).ToList();
             return View(model);
         }
 

@@ -14,7 +14,7 @@ namespace ManageYourFinance.App.Controllers
         // GET: Category
         public ActionResult Index()
         {
-            var data = db.GetAll();
+            var data = db.GetAll().OrderBy(e => e.Name);
             var model = new List<Category>();
             foreach (var item in data)
             {
@@ -28,7 +28,7 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Category(data);
-            var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(model.ID, typeof(Data.Models.Category));
+            var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(model.ID, typeof(Data.Models.Category)).OrderBy(e => e.Date);
             foreach (var item in transactionsData)
             {
                 model.Transactions.Add(new Transactions(item));

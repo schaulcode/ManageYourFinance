@@ -16,7 +16,7 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.GetAll();
             var model = new List<Transactions>();
-            model = data.Select(e => new Transactions(e)).ToList();
+            model = data.Select(e => new Transactions(e)).OrderBy(e => e.Date).ToList();
             return View(model);
         }
 

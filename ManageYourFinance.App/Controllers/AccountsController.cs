@@ -16,7 +16,7 @@ namespace ManageYourFinance.App.Controllers
         // GET: Accounts
         public ActionResult Index()
         {
-            var data = db.GetAll();
+            var data = db.GetAll().OrderBy(e => e.Name);
             var model = new List<Accounts>();
             foreach (var item in data)
             {
@@ -30,7 +30,7 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Accounts(data);
-            var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(id, typeof(Accounts));
+            var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(id, typeof(Accounts)).OrderBy(e => e.Date);
             foreach (var item in transactionsData)
             {
                 model.Transactions.Add(new Transactions(item));
@@ -41,14 +41,6 @@ namespace ManageYourFinance.App.Controllers
         // GET: Accounts/Create
         public ActionResult Create()
         {
-            List<SelectListItem> selectList = new List<SelectListItem>()
-            {
-                new SelectListItem { Text = "Credit Card", Value = "Credit Card" },
-                new SelectListItem { Text = "Cash", Value ="Cash"},
-                new SelectListItem { Text = "Bank Account", Value = "Bank Account"},
-                new SelectListItem { Text = "Other Account", Value = "Other Account"}
-            };
-            ViewBag.AccountType = selectList;
             return View();
         }
 
@@ -74,15 +66,6 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Accounts(data);
-            List<SelectListItem> selectList = new List<SelectListItem>()
-            {
-                new SelectListItem { Text = "Credit Card", Value = "Credit Card" },
-                new SelectListItem { Text = "Cash", Value ="Cash"},
-                new SelectListItem { Text = "Bank Account", Value = "Bank Account"},
-                new SelectListItem { Text = "Other Account", Value = "Other Account"}
-            };
-            selectList.Find(e => e.Value == model.Type).Selected = true;
-            ViewBag.AccountType = selectList;
             return View(model);
         }
 

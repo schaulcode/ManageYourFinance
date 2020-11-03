@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using ManageYourFinance.Data.Models;
 using System.ComponentModel.DataAnnotations;
+using ManageYourFinance.Data.Enums;
 
 namespace ManageYourFinance.App.Models
 {
@@ -14,7 +15,8 @@ namespace ManageYourFinance.App.Models
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Type { get; set; }
+        [Range(1,int.MaxValue, ErrorMessage ="Please Select a Type")]
+        public AccountsType Type { get; set; }
         [Required]
         public bool Active { get; set; }
         [Required]
