@@ -3,6 +3,7 @@ using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -80,6 +81,7 @@ namespace ManageYourFinance.App.Controllers
             try
             {
                 // TODO: Add update logic here
+                Debug.Write(data.NextDueDay);
                 db.Edit(id, data.ReverseMapper());
                 return RedirectToAction("Index");
             }

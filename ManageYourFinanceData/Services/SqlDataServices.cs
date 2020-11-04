@@ -57,6 +57,12 @@ namespace ManageYourFinance.Data.Services
             return db.Query<T>(sql).ToList();
         }
 
+        public List<T> GetAll(string columnName, DateTime date)
+        {
+            string sql = $"SELECT * FROM dbo.{instanceType.Name} WHERE {columnName} = '{date.ToString("O")}' ";
+            return db.Query<T>(sql).ToList();
+        }
+
         private string GeneratePropertyEditString()
         {
             string propertyString = "";

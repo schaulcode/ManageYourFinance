@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManageYourFinance.App.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,7 @@ namespace ManageYourFinance.App
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DataAnnotationsModelValidatorProvider.RegisterAdapter(typeof(HelperLibary.DateRangeAttribute), typeof(RangeAttributeAdapter));
+            AutomateSchedule.AddTransaction();
         }
     }
 }
