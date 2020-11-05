@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using ManageYourFinance.App.Models;
 using ManageYourFinance.Data.Services;
+using Microsoft.Ajax.Utilities;
 
 namespace ManageYourFinance.App.Controllers
 {
@@ -98,13 +99,29 @@ namespace ManageYourFinance.App.Controllers
 
         // POST: Accounts/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, string confirmation = "")
         {
             try
             {
                 // TODO: Add delete logic here
+                if (confirmation == "false")
+                {
+                    var transactionDb = new SqlDataServices<Data.Models.Transactions>();
+                    transactionDb.Delete(id, typeof(Accounts));
+                }
                 db.Delete(id);
                 return RedirectToAction("Index");
+            }
+            catch(SqlException e)
+            {
+                if (e.Number == 547)
+                {
+                    TempData["errorMessage"] = "If you Delete this entry you will delete all associated Transactions Do you want to procced?";
+                    TempData["deleteError"] = true;
+                    return RedirectToAction("Delete", id);
+                }
+                TempData["errorMessage"] = "Sorry the requested command couldn't be performed please try again later ";
+                return RedirectToAction("Delete", id);
             }
             catch
             {

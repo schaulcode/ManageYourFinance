@@ -35,6 +35,12 @@ namespace ManageYourFinance.Data.Services
             db.Execute(sql, new { id = id });
         }
 
+        public void Delete(int id, Type relationDb)
+        {
+            string sql = $"DELETE FROM dbo.{instanceType.Name} WHERE {relationDb.Name}ID = @id";
+            db.Execute(sql, new { id = id });
+        }
+
         public void Edit(int id, T data)
         {
             string sql = $"UPDATE dbo.{instanceType.Name} SET {GeneratePropertyEditString()} WHERE ID = @id";

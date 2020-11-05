@@ -14,6 +14,8 @@ namespace ManageYourFinance.Data.Services
         List<T> GetAll(string columnName, DateTime date, string expression = "=");
         void Edit(int id, T data);
         void Delete(int id);
+        void Delete(int id, Type relationDb);
+        
 
     }
 }

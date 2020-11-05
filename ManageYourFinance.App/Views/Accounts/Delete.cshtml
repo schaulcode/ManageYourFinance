@@ -12,7 +12,7 @@
     @{ if (TempData["errorMessage"] != null)
         {
             <div class="alert alert-warning">@TempData["errorMessage"]</div>
-        }}
+        } }
     <hr />
     <dl class="row">
         <dt class="col-sm-3">
@@ -60,7 +60,12 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-
+ 
+        if (TempData["deleteError"] != null)
+        {
+            <input hidden value="false" name="confirmation" />
+        }
+        
         <div class="form-action no-color ">
             <input type="submit" value="Delete" class="btn btn-danger" /> 
             @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
