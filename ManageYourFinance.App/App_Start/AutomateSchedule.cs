@@ -14,7 +14,7 @@ namespace ManageYourFinance.App.App_Start
 
         public static void AddTransaction()
         {
-            var todaysSchedule = db.GetAll("NextDueDay", DateTime.Today);
+            var todaysSchedule = db.GetAll("NextDueDay", DateTime.Today, "<=");
     
             foreach (var item in todaysSchedule)
             {
@@ -25,7 +25,7 @@ namespace ManageYourFinance.App.App_Start
                     PayeeID = item.PayeeID,
                     ScheduleID = item.ID,
                     Amount = item.Amount,
-                    Date = DateTime.Today,
+                    Date = item.NextDueDay,
 
                 };
 

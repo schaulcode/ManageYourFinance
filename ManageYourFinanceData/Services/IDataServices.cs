@@ -11,7 +11,7 @@ namespace ManageYourFinance.Data.Services
         void Add(T data);
         T Get(int id);
         List<T> GetAll(int? id = null, Type relationDb = null);
-        List<T> GetAll(string columnName, DateTime date);
+        List<T> GetAll(string columnName, DateTime date, string expression = "=");
         void Edit(int id, T data);
         void Delete(int id);
 
