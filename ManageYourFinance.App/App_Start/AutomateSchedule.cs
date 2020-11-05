@@ -46,7 +46,7 @@ namespace ManageYourFinance.App.App_Start
                         item.NextDueDay = item.NextDueDay.AddMonths(3);
                         break;
                     case Data.Enums.Frequency.OneTimePayment:
-                        //db.Delete(item.ID);
+                        item.Frequency = Data.Enums.Frequency.PaidOff;
                         break;
                     case Data.Enums.Frequency.EveryTwoWeeks:
                         item.NextDueDay = item.NextDueDay.AddDays(14);

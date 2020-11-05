@@ -25,6 +25,8 @@ namespace ManageYourFinance.Data.Enums
         [Display(Name ="Every Two Month")]
         EveryTwoMonth,
         [Display(Name ="Twice a Year")]
-        TwiceYear
+        TwiceYear,
+        [Display(Name = "Paid off")]
+        PaidOff
     }
 }
