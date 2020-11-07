@@ -11,6 +11,6 @@ namespace ManageYourFinance.Data.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public bool Active { get; set; }
-        public int CategoryID { get; set; }
+        public int CategoryID { get; set; } = 0;
     }
 }

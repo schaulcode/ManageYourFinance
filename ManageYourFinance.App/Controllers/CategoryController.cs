@@ -108,9 +108,7 @@ namespace ManageYourFinance.App.Controllers
                 if (confirmation == "false")
                 {
                     var transactionDb = new SqlDataServices<Data.Models.Transactions>();
-                    var payeeDb = new SqlDataServices<Data.Models.Payee>();
                     transactionDb.Delete(id, typeof(Category));
-                    payeeDb.Delete(id, typeof(Category));
                 }
                 db.Delete(id);
                 return RedirectToAction("Index");
@@ -119,7 +117,7 @@ namespace ManageYourFinance.App.Controllers
             {
                 if (e.Number == 547)
                 {
-                    TempData["errorMessage"] = "If you Delete this entry you will delete all associated Transactions and Payees Do you want to procced?";
+                    TempData["errorMessage"] = "If you Delete this entry you will delete all associated Transactions Do you want to procced?";
                     TempData["deleteError"] = true;
                     return RedirectToAction("Delete", id);
                 }

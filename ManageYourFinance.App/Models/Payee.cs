@@ -16,8 +16,8 @@ namespace ManageYourFinance.App.Models
         [Required]
         public bool Active { get; set; }
         [Required]
-        [Display (Name = "Category")]
-        public int CategoryID { get; set; }
+        [Display(Name = "Category")]
+        public int CategoryID { get; set; } = 0;
         public string Category { get; set; }
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
         public Payee()
@@ -30,7 +30,7 @@ namespace ManageYourFinance.App.Models
             this.Name = data.Name;
             this.Active = data.Active;
             this.CategoryID = data.CategoryID;
-            this.Category = new SqlDataServices<Data.Models.Category>().Get(CategoryID).Name;
+            this.Category = new SqlDataServices<Data.Models.Category>().Get(CategoryID)?.Name;
         }
         public Data.Models.Payee ReverseMapper()
         {

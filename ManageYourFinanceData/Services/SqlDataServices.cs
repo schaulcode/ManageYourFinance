@@ -50,7 +50,7 @@ namespace ManageYourFinance.Data.Services
         public T Get(int id)
         {
             string sql = $"sELECT * FROM dbo.{instanceType.Name} WHERE ID = @id";
-            return db.QueryFirst<T>(sql, new { id = id });
+            return db.QueryFirstOrDefault<T>(sql, new { id = id });
         }
 
         public List<T> GetAll(int? id = null, Type relationDb = null)
