@@ -14,96 +14,104 @@
             <div class="alert alert-warning">@TempData["errorMessage"]</div>
         }}
     <hr />
-    <dl class="row">
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Accounts)
-        </dt>
+    <div class="row">
+        <div class="col">
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Accounts)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Accounts)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Accounts)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Category)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Payee)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Payee)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Payee)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Payee)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Amount)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Amount)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Amount)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Amount)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Frequency)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Frequency)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Frequency)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Frequency)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.NextDueDay)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.NextDueDay)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.NextDueDay)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.NextDueDay)
+                </dd>
+            </dl>
+        </div>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.TotalAmount)
-        </dt>
+        <div class="col">
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.TotalAmount)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.TotalAmount)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.TotalAmount)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.TotalCount)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.TotalCount)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.TotalCount)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.TotalCount)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.EndsOnDate)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.EndsOnDate)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.EndsOnDate)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.EndsOnDate)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.AmountCount)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.AmountCount)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.AmountCount)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.AmountCount)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.CountCount)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.CountCount)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.CountCount)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.CountCount)
+                </dd>
+            </dl>
+        </div>
 
-    </dl>
+    </div>
 
     @using (Html.BeginForm())
     {
