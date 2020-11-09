@@ -73,14 +73,10 @@ namespace ManageYourFinance.App.Controllers
             var data = db.Get(id);
             var model = new Payee(data);
             var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
-            List<SelectListItem> selectList = new List<SelectListItem>();
-            foreach (var item in categorylist)
-            {
-                selectList.Add(new SelectListItem { Text = item.Name, Value = item.ID.ToString() });
-            }
-            selectList.Find(e => e.Value == model.CategoryID.ToString()).Selected = true;
+            
             ViewBag.Category = categorylist;
-            ViewBag.Selected = categorylist.First(e => e.ID == model.CategoryID);
+            ViewBag.Selected = categorylist.FirstOrDefault(e => e.ID == model.CategoryID);
+            ViewBag.SelectedList = new SelectList(ViewBag.Category, "ID", "Name", ViewBag.Selected);
             return View(model);
         }
 
