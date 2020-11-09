@@ -10,72 +10,79 @@
 <div>
     <h4>Transactions</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+    <div class="row">
+        <div class="col">
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Date)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Amount)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Amount)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Amount)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Amount)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Tag)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Accounts)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Tag)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Accounts)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Reference)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Category)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Reference)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Category)
+                </dd>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Memo)
-        </dt>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Payee)
+                </dt>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Memo)
-        </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Payee)
+                </dd>
+            </dl>
+        </div>
+        <div class="col">
+            <dl class="row">
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Tag)
+                </dt>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Accounts)
-        </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Tag)
+                </dd>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Accounts)
-        </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Reference)
+                </dt>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Reference)
+                </dd>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Category)
-        </dd>
+                <dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Memo)
+                </dt>
 
-        <dt class="col-sm-3">
-            @Html.DisplayNameFor(model => model.Payee)
-        </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Memo)
+                </dd>
+            </dl>
+        </div>
 
-        <dd class="col-sm-9">
-            @Html.DisplayFor(model => model.Payee)
-        </dd>
-
-    </dl>
+    </div>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
