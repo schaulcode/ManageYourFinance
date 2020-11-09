@@ -30,21 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.NextDueDay)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndsOnDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AmountCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CountCount)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -70,21 +55,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.NextDueDay)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalAmount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalCount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndsOnDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AmountCount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CountCount)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-info btn-sm" }) 
