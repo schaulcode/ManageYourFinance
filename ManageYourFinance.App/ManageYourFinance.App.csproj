@@ -173,6 +173,8 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\ManageYourFinanceApp20201109213931 - Web Deploy.pubxml" />
+    <Content Include="Properties\PublishProfiles\ManageYourFinanceApp20201109213931.PublishSettings" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
