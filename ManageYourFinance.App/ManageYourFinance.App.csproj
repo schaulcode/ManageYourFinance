@@ -126,6 +126,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncomeExpenseController.cs" />
     <Compile Include="Controllers\PayeeController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
@@ -135,6 +136,9 @@
     <Compile Include="HelperLibary\DateRangeAttribute.cs" />
     <Compile Include="Models\Accounts.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\IIncomeExpense.cs" />
+    <Compile Include="Models\IncomeExpenseCategory.cs" />
+    <Compile Include="Models\IncomeExpensePayee.cs" />
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Transactions.cs" />
@@ -304,6 +308,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_Transactions.cshtml" />
+    <Content Include="Views\IncomeExpense\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
