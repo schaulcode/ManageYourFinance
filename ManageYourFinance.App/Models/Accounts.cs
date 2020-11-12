@@ -21,6 +21,7 @@ namespace ManageYourFinance.App.Models
         public bool Active { get; set; }
         [Required]
         public bool IncludeTotal { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)]
         public int? OpeningBalance { get; set; }
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
 

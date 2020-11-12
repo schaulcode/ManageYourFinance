@@ -16,6 +16,7 @@ namespace ManageYourFinance.App.Models
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         [Required]
+        [DisplayFormat(DataFormatString ="{0:C}", ApplyFormatInEditMode = true)]
         public int Amount { get; set; }
         public string Tag { get; set; }
         public string Reference { get; set; }
