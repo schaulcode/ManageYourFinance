@@ -42,11 +42,12 @@
         <tbody>
             @foreach (var item in Model)
             {
+                var color = item.Amount < 0 ?"text-danger":"text-success";
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
-                <td>
+                <td class= @color>
                     @Html.DisplayFor(modelItem => item.Amount)
                 </td>
                 <td>

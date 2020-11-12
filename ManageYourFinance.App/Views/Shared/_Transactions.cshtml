@@ -15,11 +15,12 @@
     <tbody>
         @foreach (var item in Model)
         {
+            var color = item.Amount < 0 ? "text-danger" : "text-success";
             <tr>
                 <td>@Html.DisplayFor(model => item.Payee)</td>
                 <td>@Html.DisplayFor(model => item.Category)</td>
                 <td>@Html.DisplayFor(model => item.Date)</td>
-                <td>@Html.DisplayFor(model => item.Amount)</td>
+                <td class= @color>@Html.DisplayFor(model => item.Amount)</td>
                 <td>@Html.DisplayFor(model => item.Memo)</td>
                 <td>@Html.DisplayFor(model => item.Tag)</td>
                 <td>@Html.DisplayFor(model => item.Reference)</td>
