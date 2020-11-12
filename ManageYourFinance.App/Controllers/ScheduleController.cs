@@ -46,6 +46,9 @@ namespace ManageYourFinance.App.Controllers
             try
             {
                 // TODO: Add insert logic here
+                if (new SqlDataServices<Category>().Get(data.CategoryID).Type == Data.Enums.CategoryType.Expense)
+                    data.Amount *= -1;
+
                 db.Add(data.ReverseMapper());
                 return RedirectToAction("Index");
             }
@@ -60,6 +63,8 @@ namespace ManageYourFinance.App.Controllers
         public ActionResult Edit(int id)
         {
             var data = db.Get(id);
+            if (new SqlDataServices<Category>().Get(data.CategoryID).Type == Data.Enums.CategoryType.Expense)
+                data.Amount *= -1;
             var model = new Schedule(data);
 
             var accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
@@ -81,7 +86,9 @@ namespace ManageYourFinance.App.Controllers
             try
             {
                 // TODO: Add update logic here
-                Debug.Write(data.NextDueDay);
+                if (new SqlDataServices<Category>().Get(data.CategoryID).Type == Data.Enums.CategoryType.Expense)
+                    data.Amount *= -1;
+
                 db.Edit(id, data.ReverseMapper());
                 return RedirectToAction("Index");
             }
