@@ -49,6 +49,12 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "Name,Type,Active,IncludeTotal,OpeningBalance")] Accounts data)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+   
+            
             try
             {
                 // TODO: Add insert logic here
@@ -74,6 +80,10 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Edit([Bind(Include = "ID,Name,Type,Active,IncludeTotal,OpeningBalance")] Accounts data)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             try
             {
                 // TODO: Add update logic here

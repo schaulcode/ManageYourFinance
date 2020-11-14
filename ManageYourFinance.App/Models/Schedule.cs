@@ -26,7 +26,7 @@ namespace ManageYourFinance.App.Models
         public string Category { get; set; }
         public string Payee { get; set; }
         [Required]
-        [DisplayFormat(DataFormatString ="{0:C}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString ="{0:C}")]
         public int Amount { get; set; }
         [Required]
         public Frequency Frequency { get; set; }

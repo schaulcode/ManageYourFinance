@@ -41,6 +41,14 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Create(Transactions data )
         {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
+                ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll();
+                ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll();
+
+                return View();
+            }
             try
             {
                 // TODO: Add insert logic here
@@ -81,6 +89,13 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Transactions data)
         {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
+                ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll();
+                ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll();
+                return View(data);
+            }
             try
             {
                 // TODO: Add update logic here

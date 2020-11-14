@@ -52,6 +52,10 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Create(Category data)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             try
             {
                 // TODO: Add insert logic here
@@ -77,6 +81,10 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Edit(Category data)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             try
             {
                 // TODO: Add update logic here

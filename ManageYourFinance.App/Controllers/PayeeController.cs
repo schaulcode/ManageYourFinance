@@ -53,6 +53,13 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Create(Payee data)
         {
+            if (!ModelState.IsValid)
+            {
+                var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
+                ViewBag.Category = categorylist;
+                return View();
+            }
+
             try
             {
                 // TODO: Add insert logic here
@@ -84,6 +91,13 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Edit(Payee data)
         {
+            if (!ModelState.IsValid)
+            {
+                var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
+                ViewBag.Category = categorylist;
+                return View();
+            }
+
             try
             {
                 // TODO: Add update logic here
