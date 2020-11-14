@@ -52,6 +52,11 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Create(Category data)
         {
+            if (db.GetAll().Select(e => e.Name).Contains(data.Name))
+            {
+                ModelState.AddModelError(nameof(data.Name), $"An entry with the Name {data.Name} exists already. Please use a diffrent Name");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -81,6 +86,11 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Edit(Category data)
         {
+            if (db.GetAll().Where(e => e.ID != data.ID).Select(e => e.Name).Contains(data.Name))
+            {
+                ModelState.AddModelError(nameof(data.Name), $"An entry with the Name {data.Name} exists already. Please use a diffrent Name");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View();
