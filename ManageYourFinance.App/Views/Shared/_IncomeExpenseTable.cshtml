@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ManageYourFinance.App.Models.IIncomeExpense>
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Total)</th>
+            <th>@Html.DisplayNameFor(model => model.Average)</th>
+            <th>@Html.DisplayNameFor(model => model.Precent)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            
+
+
+            <tr>
+                <td>@Html.DisplayFor(model => item.Name)</td>
+                <td>@Html.DisplayFor(model => item.Total)</td>
+                <td>@Html.DisplayFor(model => item.Average)</td>
+                <td>@Html.DisplayFor(model => item.Precent) </td>
+            </tr>
+
+            
+        }
+        <tr class="bg-dark text-light">
+            <td>Income Total</td>
+            <td>@Model.Select(e => e.Total).Sum().ToString("F")</td>
+            <td>@Model.Select(e => e.Average).Sum().ToString("F") </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

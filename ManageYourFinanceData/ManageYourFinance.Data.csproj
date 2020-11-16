@@ -51,6 +51,8 @@
     <Compile Include="Enums\AccountsType.cs" />
     <Compile Include="Enums\CategoryType.cs" />
     <Compile Include="Enums\Frequency.cs" />
+    <Compile Include="Enums\IncomeExpenseSelection.cs" />
+    <Compile Include="Enums\IncomeExpenseTimeSelector.cs" />
     <Compile Include="Models\Accounts.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Payee.cs" />

@@ -138,6 +138,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IIncomeExpense.cs" />
     <Compile Include="Models\IncomeExpenseCategory.cs" />
+    <Compile Include="Models\IncomeExpenseModel.cs" />
     <Compile Include="Models\IncomeExpensePayee.cs" />
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Schedule.cs" />
@@ -309,6 +310,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_Transactions.cshtml" />
     <Content Include="Views\IncomeExpense\Index.cshtml" />
+    <Content Include="Views\Shared\_IncomeExpenseTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

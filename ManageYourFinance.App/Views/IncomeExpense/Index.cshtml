@@ -1,12 +1,107 @@
-﻿@model ManageYourFinance.App.Models.IncomeExpenseCategory
+﻿@model ManageYourFinance.App.Models.IncomeExpenseModel
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Income and Expense</h2>
-<form class="form-inline">
+<form action="/IncomeExpense/Index" method="post" class="form-row">
+    @Html.AntiForgeryToken()
+    <div class="col-2">
+        @Html.LabelFor(model => model.Selection, htmlAttributes: new { @class = "sr-only" })
+        @Html.EnumDropDownListFor(model => model.Selection, htmlAttributes: new { @class = "custom-select form-controls" })
+    </div>
+
+    <div class="offset-1 col-3">
+        @Html.LabelFor(model => model.LeftHandTimeSelector, htmlAttributes: new { @class = "sr-only" })
+        @Html.EnumDropDownListFor(model => model.LeftHandTimeSelector, htmlAttributes: new { @class = "custom-select form-controls" })
+    </div>
+
+    <div class="offset-1 col-3">
+        @Html.LabelFor(model => model.RightHandTimeSelector, htmlAttributes: new { @class = "sr-only" })
+        @Html.EnumDropDownListFor(model => model.RightHandTimeSelector, htmlAttributes: new { @class = "custom-select form-controls" })
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
+<div class="row">
+    <div class="col">
+        <div class="accordion">
+            <div class="card">
+                <div class="card-header">
+                    <h2><button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#income">Income</button></h2>
+                </div>
+                <div class="collapse show" id="income">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col" id="leftHandIncome">
+                                @{
+                                    Html.RenderPartial("_IncomeExpenseTable", Model.LeftHandIncome);
+                                }
+                            </div>
+                            <div class="col" id="rightHandIncome">
+                                @{
+                                    Html.RenderPartial("_IncomeExpenseTable", Model.RightHandIncome);
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion">
+            <div class="card">
+                <div class="card-header">
+                    <h2><button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#expense">Expense</button></h2>
+                </div>
+                <div class="collapse show" id="expense">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col" id="leftHandExpense">
+                                @{
+                                    Html.RenderPartial("_IncomeExpenseTable", Model.LeftHandExpense);
+                                }
+                            </div>
+                            <div class="col" id="righttHandExpense">
+                                @{
+                                    Html.RenderPartial("_IncomeExpenseTable", Model.RightHandExpense);
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <table class="table">
+                            <thead class="thead">
+                                <tr>
+                                    <th>NET TOTAL</th>
+                                    <th>@((Model.LeftHandIncome.Select(e => e.Total).Sum() - @Model.LeftHandExpense.Select(e => e.Total).Sum()).ToString("F")) </th>
+                                    <th>@((Model.LeftHandIncome.Select(e => e.Average).Sum() - @Model.LeftHandExpense.Select(e => e.Average).Sum()).ToString("F"))</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <table class="table">
+                            <thead class="thead">
+                                <tr>
+                                    <th>NET TOTAL</th>
+                                    <th>@((Model.RightHandIncome.Select(e => e.Total).Sum() - @Model.RightHandExpense.Select(e => e.Total).Sum()).ToString("F"))</th>
+                                    <th>@((Model.RightHandIncome.Select(e => e.Average).Sum() - @Model.RightHandExpense.Select(e => e.Average).Sum()).ToString("F"))</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div></div>
+    </div>
+</div>
 
 
