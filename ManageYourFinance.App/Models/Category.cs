@@ -19,6 +19,7 @@ namespace ManageYourFinance.App.Models
         public bool Active { get; set; }
         public List<Payee> Payees { get; set; } = new List<Payee>();
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
+        public double Total { get; set; }
 
         public Category()
         {

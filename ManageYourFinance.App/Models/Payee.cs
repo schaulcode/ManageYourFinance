@@ -20,6 +20,7 @@ namespace ManageYourFinance.App.Models
         public int CategoryID { get; set; } = 0;
         public string Category { get; set; }
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
+        public double Total { get; set; }
         public Payee()
         {
 

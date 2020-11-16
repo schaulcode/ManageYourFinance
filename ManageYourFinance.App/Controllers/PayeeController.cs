@@ -24,6 +24,7 @@ namespace ManageYourFinance.App.Controllers
             foreach (var item in data)
             {
                 model.Add(new Payee(item));
+                model.Last().Total = new SqlDataServices<Data.Models.Transactions>().GetAll(item.ID, typeof(Payee)).Sum(e => e.Amount);
             }
             return View(model.OrderBy(e => e.Name));
         }
