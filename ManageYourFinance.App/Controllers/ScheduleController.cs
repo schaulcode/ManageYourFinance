@@ -1,4 +1,5 @@
-﻿using ManageYourFinance.App.Models;
+﻿using ManageYourFinance.App.App_Start;
+using ManageYourFinance.App.Models;
 using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,11 @@ namespace ManageYourFinance.App.Controllers
     public class ScheduleController : Controller
     {
         readonly IDataServices<Data.Models.Schedule> db = new SqlDataServices<Data.Models.Schedule>();
+        
         // GET: Schedule
         public ActionResult Index()
         {
+            AutomateSchedule.AddTransaction();
             var data = db.GetAll();
             var model = data.Select(e => new Schedule(e)).ToList();
             return View(model);

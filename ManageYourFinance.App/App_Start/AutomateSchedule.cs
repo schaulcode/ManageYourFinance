@@ -14,7 +14,8 @@ namespace ManageYourFinance.App.App_Start
 
         public static void AddTransaction()
         {
-            var todaysSchedule = db.GetAll("NextDueDay", DateTime.Today, "<=");
+            var todaysSchedule = db.GetAll("NextDueDay", DateTime.Today, "<=").Where(e => e.Frequency != Data.Enums.Frequency.PaidOff);
+           
     
             foreach (var item in todaysSchedule)
             {
@@ -65,6 +66,14 @@ namespace ManageYourFinance.App.App_Start
                         break;
                     default:
                         break;
+                }
+
+                if (item.TotalAmount.HasValue) { item.AmountCount = item.AmountCount.GetValueOrDefault() + (item.Amount < 0 ? item.Amount * -1 : item.Amount) ; }
+                if (item.TotalCount.HasValue) { item.CountCount = item.CountCount.GetValueOrDefault() + 1; }
+
+                if ((item.EndsOnDate.HasValue && item.NextDueDay > item.EndsOnDate) || (item.TotalAmount.HasValue && item.AmountCount >= item.TotalAmount) || (item.TotalCount.HasValue && item.CountCount >= item.TotalCount))
+                {
+                    item.Frequency = Data.Enums.Frequency.PaidOff;
                 }
 
                 db.Edit(item.ID, item);

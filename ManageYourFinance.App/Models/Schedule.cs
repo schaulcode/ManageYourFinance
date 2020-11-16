@@ -31,7 +31,7 @@ namespace ManageYourFinance.App.Models
         [Required]
         public Frequency Frequency { get; set; }
         [Required]
-        [DateRange(ErrorMessage = "Date must be between {1:dd/MM/yyyy} and {2:dd/MM/yyyy} ")]
+        //[DateRange(ErrorMessage = "Date must be between {1:dd/MM/yyyy} and {2:dd/MM/yyyy} ")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyy}")]
         [DataType(DataType.Date)]
         [DisplayName("Next Due Day")]
@@ -41,7 +41,7 @@ namespace ManageYourFinance.App.Models
         [DisplayName("Total Count")]
         public int? TotalCount { get; set; }
         [DisplayName("Ends On Date")]
-        [DateRange(ErrorMessage = "Date must be between {1:dd/MM/yyyy} and {2:dd/MM/yyyy} ")]
+        //[DateRange(ErrorMessage = "Date must be between {1:dd/MM/yyyy} and {2:dd/MM/yyyy} ")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyy}")]
         [DataType(DataType.Date)]
         public DateTime? EndsOnDate { get; set; }
