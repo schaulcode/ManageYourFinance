@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManageYourFinance.Data.Enums
 {
-    public enum IncomeExpenseTimeSelector
+    public enum TimeSelector
     {
         ThisYear,
         LastYear,

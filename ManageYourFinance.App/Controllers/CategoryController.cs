@@ -1,4 +1,5 @@
 ﻿using ManageYourFinance.App.Models;
+using ManageYourFinance.Data.Enums;
 using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,28 @@ namespace ManageYourFinance.App.Controllers
             var data = db.Get(id);
             var model = new Category(data);
             var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(model.ID, typeof(Data.Models.Category)).OrderBy(e => e.Date);
+            foreach (var item in transactionsData)
+            {
+                model.Transactions.Add(new Transactions(item));
+            }
+            var payeeData = new SqlDataServices<Data.Models.Payee>().GetAll(model.ID, typeof(Data.Models.Category));
+            foreach (var item in payeeData)
+            {
+                model.Payees.Add(new Payee(item));
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(int id, TimeSelector timeSelector)
+        {
+            var data = db.Get(id);
+            var model = new Category(data);
+            DateTime startDate;
+            DateTime endDate;
+            HelperLibary.EvaluateTimeSelector.Evaluate(timeSelector, out startDate, out endDate);
+            var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(model.ID, typeof(Data.Models.Category)).Where(e => e.Date > startDate && e.Date < endDate).OrderBy(e => e.Date);
             foreach (var item in transactionsData)
             {
                 model.Transactions.Add(new Transactions(item));

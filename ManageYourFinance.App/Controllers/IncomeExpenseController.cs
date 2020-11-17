@@ -14,7 +14,7 @@ namespace ManageYourFinance.App.Controllers
         // GET: IncomeExpense
         public ActionResult Index()
         {
-            var model = new IncomeExpenseModel(Data.Enums.IncomeExpenseTimeSelector.ThisYear, Data.Enums.IncomeExpenseTimeSelector.LastYear);
+            var model = new IncomeExpenseModel(Data.Enums.TimeSelector.ThisYear, Data.Enums.TimeSelector.LastYear);
             return View(model);
         }
         [HttpPost]

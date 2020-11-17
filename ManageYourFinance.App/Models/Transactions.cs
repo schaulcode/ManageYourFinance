@@ -1,4 +1,5 @@
-﻿using ManageYourFinance.Data.Services;
+﻿using ManageYourFinance.Data.Enums;
+using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

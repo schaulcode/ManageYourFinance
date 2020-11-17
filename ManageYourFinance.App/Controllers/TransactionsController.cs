@@ -1,4 +1,5 @@
 ﻿using ManageYourFinance.App.Models;
+using ManageYourFinance.Data.Enums;
 using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,18 @@ namespace ManageYourFinance.App.Controllers
         public ActionResult Index()
         {
             var data = db.GetAll();
+            var model = new List<Transactions>();
+            model = data.Select(e => new Transactions(e)).OrderBy(e => e.Date).ToList();
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(TimeSelector timeSelector)
+        {
+            DateTime startDate;
+            DateTime endDate;
+            HelperLibary.EvaluateTimeSelector.Evaluate(timeSelector, out startDate, out endDate);
+            var data = db.GetAll().Where(e => e.Date > startDate && e.Date < endDate);
             var model = new List<Transactions>();
             model = data.Select(e => new Transactions(e)).OrderBy(e => e.Date).ToList();
             return View(model);

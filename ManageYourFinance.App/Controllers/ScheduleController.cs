@@ -1,5 +1,6 @@
 ﻿using ManageYourFinance.App.App_Start;
 using ManageYourFinance.App.Models;
+using ManageYourFinance.Data.Enums;
 using ManageYourFinance.Data.Services;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,19 @@ namespace ManageYourFinance.App.Controllers
             var data = db.Get(id);
             var model = new Schedule(data);
             model.Transactions = new SqlDataServices<Data.Models.Transactions>().GetAll(model.ID, typeof(Schedule)).Select(e => new Transactions(e)).OrderBy(e => e.Date).ToList();
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(int id, TimeSelector timeSelector)
+        {
+            var data = db.Get(id);
+            var model = new Schedule(data);
+            DateTime startDate;
+            DateTime endDate;
+            HelperLibary.EvaluateTimeSelector.Evaluate(timeSelector, out startDate, out endDate);
+            model.Transactions = new SqlDataServices<Data.Models.Transactions>().GetAll(model.ID, typeof(Schedule)).Where(e => e.Date > startDate && e.Date < endDate).Select(e => new Transactions(e)).OrderBy(e => e.Date).ToList();
             return View(model);
         }
 
