@@ -20,6 +20,35 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group row">
+        @Html.LabelFor(model => model.AccountsID, htmlAttributes: new { @class = "col-form-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.AccountsID, new SelectList(ViewBag.Accounts, "ID", "Name"), "Select an Account", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.AccountsID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.PayeeID, htmlAttributes: new { @class = "col-form-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.PayeeID, new SelectList(ViewBag.Payee, "ID", "Name"), "Select an Payee", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PayeeID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "col-form-label col-md-2" })
+        <div class="col-md-10">
+            <div class="input-group input-group-width">
+                @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Category, "ID", "Name"), "Select an Category", htmlAttributes: new { @class = "form-control" })
+                <div class="input-group-append">
+                    <span class="input-group-text" id="category-add-on"></span>
+                </div>
+            </div>
+            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
         @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-form-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
@@ -34,7 +63,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">£</span>
                 </div>
-                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", style = "width:245.37px !Important"} })
+                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control", style = "width:245.37px !Important" } })
             </div>
             @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
         </div>
@@ -61,35 +90,6 @@
         <div class="col-md-10">
             @Html.EditorFor(model => model.Memo, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Memo, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.AccountsID, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.AccountsID, new SelectList(ViewBag.Accounts, "ID", "Name"), "Select an Account", htmlAttributes : new { @class = "form-control" } )
-            @Html.ValidationMessageFor(model => model.AccountsID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            <div class="input-group input-group-width">
-                @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Category, "ID", "Name"), "Select an Category", htmlAttributes: new { @class = "form-control" })
-                <div class="input-group-append">
-                    <span class="input-group-text" id="category-add-on"></span>
-                </div>
-            </div>
-            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.PayeeID, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.PayeeID, new SelectList(ViewBag.Payee, "ID", "Name"), "Select an Payee", htmlAttributes : new { @class = "form-control" } )
-            @Html.ValidationMessageFor(model => model.PayeeID, "", new { @class = "text-danger" })
         </div>
     </div>
 
