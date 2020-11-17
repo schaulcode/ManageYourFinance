@@ -27,3 +27,7 @@ textarea {
 .table-hover tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.175);
 }
+/*Set the width of input-group when a add-on or buttont is used to allign the input field with the rest of the form*/
+.input-group-width{
+    width:280px;
+}

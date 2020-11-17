@@ -10,111 +10,126 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Schedule</h4>
-    @{ if (ViewBag.Message != null)
-        {
-            <div class="alert alert-warning">@ViewBag.Message</div>
-        }}
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.ID)
 
-    <div class="form-group row">
-        @Html.LabelFor(model => model.AccountsID, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.AccountsID, new SelectList( ViewBag.Accounts, "ID", "Name", ViewBag.AccountsSelected), "select an Account", htmlAttributes : new { @class = "form-control" } )
-            @Html.ValidationMessageFor(model => model.AccountsID, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>Schedule</h4>
+        @{ if (ViewBag.Message != null)
+            {
+                <div class="alert alert-warning">@ViewBag.Message</div>
+            }}
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.AccountsID, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.AccountsID, new SelectList(ViewBag.Accounts, "ID", "Name", ViewBag.AccountsSelected), "select an Account", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AccountsID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group input-group-width">
+                    @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Category, "ID", "Name", ViewBag.CategorySelected), "select a Category", htmlAttributes: new { @class = "form-control" })
+                    <div class="input-group-append">
+                        <div class="input-group-text" id="category-add-on"></div>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.PayeeID, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.PayeeID, new SelectList(ViewBag.Payee, "ID", "Name", ViewBag.PayeeSelected), "select an Payee", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PayeeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group input-group-width">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">£</div>
+                    </div>
+                    @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Frequency, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Frequency,  htmlAttributes : new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Frequency, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.NextDueDay, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NextDueDay, new { htmlAttributes = new { @class = "form-control", Value = Model.NextDueDay.ToString("yyyy-MM-dd") } })
+                @Html.ValidationMessageFor(model => model.NextDueDay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.TotalAmount, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group input-group-width">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">£</div>
+                    </div>
+                    @Html.EditorFor(model => model.TotalAmount, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.TotalCount, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TotalCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TotalCount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.EndsOnDate, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndsOnDate, new { htmlAttributes = new { @class = "form-control", Value = Model.EndsOnDate?.ToString("yyyy-MM-dd") } })
+                @Html.ValidationMessageFor(model => model.EndsOnDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.AmountCount, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AmountCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AmountCount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.CountCount, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CountCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CountCount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-md-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-secondary" />
+            </div>
         </div>
     </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Category,"ID", "Name", ViewBag.CategorySelected), "select a Category",  htmlAttributes : new { @class = "form-control" } )
-            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.PayeeID, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.PayeeID, new SelectList(ViewBag.Payee, "ID", "Name", ViewBag.PayeeSelected), "select an Payee", htmlAttributes : new { @class = "form-control" } )
-            @Html.ValidationMessageFor(model => model.PayeeID, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.Frequency, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EnumDropDownListFor(model => model.Frequency, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Frequency, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.NextDueDay, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NextDueDay, new { htmlAttributes = new { @class = "form-control", Value = Model.NextDueDay.ToString("yyyy-MM-dd") } })
-            @Html.ValidationMessageFor(model => model.NextDueDay, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.TotalAmount, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.TotalAmount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TotalAmount, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.TotalCount, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.TotalCount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.TotalCount, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.EndsOnDate, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.EndsOnDate, new { htmlAttributes = new { @class = "form-control", Value = Model.EndsOnDate?.ToString("yyyy-MM-dd") } })
-            @Html.ValidationMessageFor(model => model.EndsOnDate, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.AmountCount, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.AmountCount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.AmountCount, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.CountCount, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CountCount, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CountCount, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="offset-md-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-secondary" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
@@ -123,4 +138,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/transaction-schedule")
 }
