@@ -10,49 +10,54 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Payee</h4>
-    @{ if (ViewBag.Message != null)
-        {
-            <div class="alert alert-warning">@ViewBag.Message</div>
-        }}
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.ID)
 
-    <div class="form-group row">
-        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    <div class="form-horizontal">
+        <h4>Payee</h4>
+        @{ if (ViewBag.Message != null)
+            {
+                <div class="alert alert-warning">@ViewBag.Message</div>
+            }}
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group row">
-        @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            <div class="form-check">
-                @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-check-input" } })
-                @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                <div class="form-check">
+                    @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-check-input" } })
+                    @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "col-form-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group input-group-width">
+                    @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Category, "ID", "Name", ViewBag.Selected), "Select a Category", htmlAttributes: new { @class = "form-control" })
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="category-add-on"></span>
+                    </div>
+                </div>
+                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-md-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-secondary" />
             </div>
         </div>
     </div>
-
-    <div class="form-group row">
-        @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "col-form-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.CategoryID, new SelectList(ViewBag.Category, "ID", "Name", ViewBag.Selected) , "Select a Category", htmlAttributes : new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" }) 
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="offset-md-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-secondary" />
-        </div>
-    </div>
-</div>
 }
 
 <div>
@@ -61,4 +66,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/transaction-schedule")
 }
