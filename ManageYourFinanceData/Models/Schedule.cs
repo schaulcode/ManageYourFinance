@@ -13,13 +13,13 @@ namespace ManageYourFinance.Data.Models
         public int AccountsID { get; set; }
         public int CategoryID { get; set; }
         public int PayeeID { get; set; }
-        public int Amount { get; set; }
+        public double Amount { get; set; }
         public Frequency Frequency { get; set; }
         public DateTime NextDueDay { get; set; }
-        public int? TotalAmount { get; set; }
+        public double? TotalAmount { get; set; }
         public int? TotalCount { get; set; }
         public DateTime? EndsOnDate { get; set; }
-        public int? AmountCount { get; set; }
+        public double? AmountCount { get; set; }
         public int? CountCount { get; set; }
     }
     

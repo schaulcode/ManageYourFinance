@@ -22,12 +22,13 @@ namespace ManageYourFinance.App.Models
         [Required]
         [Display(Name ="Payee")]
         public int PayeeID { get; set; }
+        [Display(Name = "Account")]
         public string Accounts { get; set; }
         public string Category { get; set; }
         public string Payee { get; set; }
         [Required]
         [DisplayFormat(DataFormatString ="{0:C}")]
-        public int Amount { get; set; }
+        public double Amount { get; set; }
         [Required]
         public Frequency Frequency { get; set; }
         [Required]
@@ -37,7 +38,7 @@ namespace ManageYourFinance.App.Models
         [DisplayName("Next Due Day")]
         public DateTime NextDueDay { get; set; }
         [DisplayName("Total Amount")]
-        public int? TotalAmount { get; set; }
+        public double? TotalAmount { get; set; }
         [DisplayName("Total Count")]
         public int? TotalCount { get; set; }
         [DisplayName("Ends On Date")]
@@ -45,7 +46,7 @@ namespace ManageYourFinance.App.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyy}")]
         [DataType(DataType.Date)]
         public DateTime? EndsOnDate { get; set; }
-        public int? AmountCount { get; set; }
+        public double? AmountCount { get; set; }
         public int? CountCount { get; set; }
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
         public Schedule()

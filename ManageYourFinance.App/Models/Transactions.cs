@@ -19,10 +19,11 @@ namespace ManageYourFinance.App.Models
         [Required]
         [DisplayFormat(DataFormatString ="{0:C}")]
         [DataType(DataType.Currency)]
-        public int Amount { get; set; }
+        public double Amount { get; set; }
         public string Tag { get; set; }
         public string Reference { get; set; }
-        public string Memo { get; set; }
+        public string Memo { get; set;}
+        [Display(Name = "Account")]
         public string Accounts { get; set; }
         public string Category { get; set; }
         public string Payee { get; set; }

@@ -10,7 +10,7 @@ namespace ManageYourFinance.Data.Models
     {
         public int ID { get; set; }
         public DateTime Date { get; set; }
-        public int Amount { get; set; }
+        public double Amount { get; set; }
         public string Tag { get; set; }
         public string Reference { get; set; }
         public string Memo { get; set; }
