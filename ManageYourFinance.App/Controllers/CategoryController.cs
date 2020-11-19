@@ -23,7 +23,8 @@ namespace ManageYourFinance.App.Controllers
                 model.Add(new Category(item));
                 model.Last().Total = new SqlDataServices<Data.Models.Transactions>().GetAll(item.ID, typeof(Category)).Sum(e => e.Amount);
             }
-            return View(model.OrderBy(e => e.Name));
+            model = model.OrderBy(e => e.Type).ThenBy(e => e.Name).ToList();
+            return View(model);
         }
 
         // GET: Category/Details/5

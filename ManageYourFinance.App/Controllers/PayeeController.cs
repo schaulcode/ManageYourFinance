@@ -27,6 +27,7 @@ namespace ManageYourFinance.App.Controllers
                 model.Add(new Payee(item));
                 model.Last().Total = new SqlDataServices<Data.Models.Transactions>().GetAll(item.ID, typeof(Payee)).Sum(e => e.Amount);
             }
+            model.OrderBy(e => e.Name);
             return View(model.OrderBy(e => e.Name));
         }
 
@@ -63,7 +64,7 @@ namespace ManageYourFinance.App.Controllers
         // GET: Payee/Create
         public ActionResult Create()
         {
-            var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
+            var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Type).ThenBy(e => e.Name);
             ViewBag.Category = categorylist;
             return View();
         }
@@ -79,7 +80,7 @@ namespace ManageYourFinance.App.Controllers
 
             if (!ModelState.IsValid)
             {
-                var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
+                var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Type).ThenBy(e => e.Name);
                 ViewBag.Category = categorylist;
                 return View();
             }
@@ -103,7 +104,7 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Payee(data);
-            var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
+            var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Type).ThenBy(e => e.Name);
             
             ViewBag.Category = categorylist;
             ViewBag.Selected = categorylist.FirstOrDefault(e => e.ID == model.CategoryID);
@@ -123,7 +124,7 @@ namespace ManageYourFinance.App.Controllers
 
             if (!ModelState.IsValid)
             {
-                var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Name);
+                var categorylist = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Type).ThenBy(e => e.Name);
                 ViewBag.Category = categorylist;
                 return View();
             }

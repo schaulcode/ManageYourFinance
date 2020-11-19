@@ -37,34 +37,35 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Accounts)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Payee)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Frequency)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NextDueDay)
-                </td>
-                <td>
-                    <div class="btn-group btn-group-sm">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-info " })
-                        @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-info" })
-                    </div>
-                </td>
-            </tr>
-        }
+            var color = item.Amount< 0 ? "text-danger" : "text-success";
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Accounts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payee)
+        </td>
+        <td class=@color>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Frequency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextDueDay)
+        </td>
+        <td>
+            <div class="btn-group btn-group-sm">
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-info " })
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-info" })
+            </div>
+        </td>
+    </tr>
+}
     </tbody>
 
 </table>

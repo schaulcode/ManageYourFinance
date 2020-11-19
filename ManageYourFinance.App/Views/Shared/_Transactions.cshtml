@@ -33,11 +33,20 @@
                 <td>@Html.DisplayFor(model => item.Payee)</td>
                 <td>@Html.DisplayFor(model => item.Category)</td>
                 <td>@Html.DisplayFor(model => item.Date)</td>
-                <td class= @color>@Html.DisplayFor(model => item.Amount)</td>
+                <td class=@color>@Html.DisplayFor(model => item.Amount)</td>
                 <td>@Html.DisplayFor(model => item.Memo)</td>
                 <td>@Html.DisplayFor(model => item.Tag)</td>
                 <td>@Html.DisplayFor(model => item.Reference)</td>
             </tr>
         }
+        <tr class="bg-dark text-light font-weight-bold">
+            <td>TOTAL</td>
+            <td></td>
+            <td></td>
+            <td class=@(Model.Sum(e => e.Amount) < 0?"text-danger":"text-success")>@Model.Sum(e => e.Amount)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
     </tbody>
 </table>

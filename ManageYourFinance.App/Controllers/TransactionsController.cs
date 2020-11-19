@@ -44,9 +44,9 @@ namespace ManageYourFinance.App.Controllers
         // GET: Transactions/Create
         public ActionResult Create()
         {
-            ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
-            ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll();
-            ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll();
+            ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll().OrderBy(e => e.Name);
+            ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Type).ThenBy(e => e.Name);
+            ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll().OrderBy(e => e.Name);
             return View();
         }
 
@@ -56,9 +56,9 @@ namespace ManageYourFinance.App.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
-                ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll();
-                ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll();
+                ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll().OrderBy(e => e.Name);
+                ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Type).ThenBy(e => e.Name);
+                ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll().OrderBy(e => e.Name);
 
                 return View();
             }
@@ -85,9 +85,9 @@ namespace ManageYourFinance.App.Controllers
                 data.Amount *= -1;
             var model = new Transactions(data);
 
-            var accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
-            var category = new SqlDataServices<Data.Models.Category>().GetAll();
-            var payee = new SqlDataServices<Data.Models.Payee>().GetAll();
+            var accounts = new SqlDataServices<Data.Models.Accounts>().GetAll().OrderBy(e => e.Name);
+            var category = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Type).ThenBy(e => e.Name);
+            var payee = new SqlDataServices<Data.Models.Payee>().GetAll().OrderBy(e => e.Name);
             ViewBag.AccountsSelected = accounts.First(e => e.ID == model.AccountsID);
             ViewBag.CategorySelected = category.First(e => e.ID == model.CategoryID);
             ViewBag.PayeeSelected = payee.First(e => e.ID == model.PayeeID);
@@ -104,9 +104,9 @@ namespace ManageYourFinance.App.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll();
-                ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll();
-                ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll();
+                ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll().OrderBy(e => e.Name);
+                ViewBag.Category = new SqlDataServices<Data.Models.Category>().GetAll().OrderBy(e => e.Type).ThenBy(e => e.Name);
+                ViewBag.Payee = new SqlDataServices<Data.Models.Payee>().GetAll().OrderBy(e => e.Name);
                 return View(data);
             }
             try

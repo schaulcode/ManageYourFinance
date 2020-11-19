@@ -32,9 +32,6 @@
                     @Html.DisplayNameFor(model => model.Date)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Amount)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Accounts)
                 </th>
                 <th>
@@ -42,6 +39,9 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Payee)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
                 </th>
                 <th>
                     <div>@Html.DisplayNameFor(model => model.Tag)</div>
@@ -62,9 +62,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Date)
                 </td>
-                <td class= @color>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Accounts)
                 </td>
@@ -73,6 +70,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Payee)
+                </td>
+                <td class=@color>
+                    @Html.DisplayFor(modelItem => item.Amount)
                 </td>
                 <td>
                     <div>@Html.DisplayFor(modelItem => item.Tag)</div>
@@ -90,6 +90,16 @@
                 </td>
             </tr>
             }
+        <tr class="bg-dark text-light font-weight-bold">
+            <td>TOTAL</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class=@(Model.Sum(e => e.Amount) < 0?"text-danger":"text-success")>@Model.Sum(e => e.Amount)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
         </tbody>
 
     </table>
