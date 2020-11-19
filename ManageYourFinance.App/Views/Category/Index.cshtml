@@ -57,7 +57,7 @@
             <td>NET TOTAL</td>
             <td></td>
             <td></td>
-            <td class=@(Model.Sum(e => e.Total) < 0?"text-danger":"text-success")>@Model.Sum(e => e.Total)</td>
+            <td class=@(Model.Sum(e => e.Total) < 0?"text-danger":"text-success")>£@Model.Sum(e => e.Total)</td>
             <td></td>
         </tr>
     </tbody>

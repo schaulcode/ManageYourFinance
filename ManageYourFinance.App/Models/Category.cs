@@ -19,6 +19,8 @@ namespace ManageYourFinance.App.Models
         public bool Active { get; set; }
         public List<Payee> Payees { get; set; } = new List<Payee>();
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        [DataType(DataType.Currency)]
         public double Total { get; set; }
 
         public Category()

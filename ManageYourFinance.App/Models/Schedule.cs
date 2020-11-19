@@ -38,6 +38,8 @@ namespace ManageYourFinance.App.Models
         [DisplayName("Next Due Day")]
         public DateTime NextDueDay { get; set; }
         [DisplayName("Total Amount")]
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        [DataType(DataType.Currency)]
         public double? TotalAmount { get; set; }
         [DisplayName("Total Count")]
         public int? TotalCount { get; set; }
@@ -46,7 +48,11 @@ namespace ManageYourFinance.App.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyy}")]
         [DataType(DataType.Date)]
         public DateTime? EndsOnDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        [DataType(DataType.Currency)]
+        [Display(Name ="Amount Count")]
         public double? AmountCount { get; set; }
+        [Display(Name = "Count Count")]
         public int? CountCount { get; set; }
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
         public Schedule()

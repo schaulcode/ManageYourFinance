@@ -24,6 +24,8 @@ namespace ManageYourFinance.App.Models
         [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)]
         public int? OpeningBalance { get; set; }
         public List<Transactions> Transactions { get; set; } = new List<Transactions>();
+        [DisplayFormat(DataFormatString = "{0:C}")]
+        [DataType(DataType.Currency)]
         public double Total { get; set; }
 
         public Accounts()
