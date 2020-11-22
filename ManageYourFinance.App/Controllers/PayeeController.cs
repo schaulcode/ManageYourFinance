@@ -161,6 +161,8 @@ namespace ManageYourFinance.App.Controllers
                 {
                     var transactionDb = new SqlDataServices<Data.Models.Transactions>();
                     transactionDb.Delete(id, typeof(Payee));
+                    var scheduleDb = new SqlDataServices<Data.Models.Schedule>();
+                    scheduleDb.Delete(id, typeof(Payee));
                 }
                 db.Delete(id);
                 return RedirectToAction("Index");
