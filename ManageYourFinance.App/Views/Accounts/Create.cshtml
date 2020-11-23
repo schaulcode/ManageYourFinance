@@ -39,7 +39,7 @@
             @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "col-form-label col-md-2 form-check-label" })
             <div class="col-md-10">
                 <div class="form-check">
-                    @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-check-input" } } )
+                    @Html.CheckBoxFor(model => model.Active, htmlAttributes : new { @class = "form-check-input", @checked = "checked"} )
                     @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -49,7 +49,7 @@
             @Html.LabelFor(model => model.IncludeTotal, htmlAttributes: new { @class = "col-form-label col-md-2 form-check-label" })
             <div class="col-md-10">
                 <div class="form-check">
-                    @Html.EditorFor(model => model.IncludeTotal,new { htmlAttributes = new { @class = "form-check-input" } })
+                    @Html.CheckBoxFor(model => model.IncludeTotal, htmlAttributes : new { @class = "form-check-input", @checked = "checked" } )
                     @Html.ValidationMessageFor(model => model.IncludeTotal, "", new { @class = "text-danger" })
                 </div>
             </div>

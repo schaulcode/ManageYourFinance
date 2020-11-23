@@ -39,7 +39,7 @@
         @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "col-form-label col-md-2" })
         <div class="col-md-10">
             <div class="form-check">
-                @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-check-input" } })
+                @Html.CheckBoxFor(model => model.Active, htmlAttributes : new { @class = "form-check-input", @checked = "checked" } )
                 @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
             </div>
         </div>
