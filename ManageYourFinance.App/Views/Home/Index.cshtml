@@ -11,80 +11,82 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="container body-content">
-        <div class="jumbotron">
-            <h1 class="text-center display-2">Manage Your Finance</h1>
+<body class="body-index bg-aliceBlue">
+    <div class="container-fluid body-content">
+        <div class="jumbotron bg-manatee">
+            <h1 class="text-center display-2 text-imperialRed">Manage Your Finance</h1>
         </div>
 
-        <div class="row mb-sm-3">
-            <div class="col-sm mb-3 mb-sm-0" >
-                <a class="text-reset text-decoration-none" href="~/Accounts">
-                    <div class="card bg-secondary">
-                        <div class="card-body">
-                            <h3 class="card-title text-center text-light">Accounts</h3>
-                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.AccountsCount</span></div>
+        <div class="container">
+            <div class="row mb-sm-3">
+                <div class="col-sm mb-3 mb-sm-0">
+                    <a class="text-reset text-decoration-none" href="~/Accounts">
+                        <div class="card bg-spaceCadet">
+                            <div class="card-body">
+                                <h3 class="card-title text-center text-amaranthRed">Accounts</h3>
+                                <div class="text-center"><span class="badge badge-pill badge-amaranthRed">@ViewBag.AccountsCount</span></div>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+                <div class="col-sm mb-3 mb-sm-0">
+                    <a class="text-reset text-decoration-none" href="~/Category">
+                        <div class="card bg-spaceCadet">
+                            <div class="card-body">
+                                <h3 class="card-title text-center text-amaranthRed">Category</h3>
+                                <div class="text-center"><span class="badge badge-pill badge-amaranthRed">@ViewBag.CategoryCount</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm mb-3 mb-sm-0">
+                    <a class="text-reset text-decoration-none" href="~/Payee">
+                        <div class="card bg-spaceCadet">
+                            <div class="card-body">
+                                <h3 class="card-title text-center text-amaranthRed">Payee</h3>
+                                <div class="text-center"><span class="badge badge-pill badge-amaranthRed">@ViewBag.PayeeCount</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="col-sm mb-3 mb-sm-0">
-                <a class="text-reset text-decoration-none" href="~/Category">
-                    <div class="card bg-secondary">
-                        <div class="card-body">
-                            <h3 class="card-title text-center text-light">Category</h3>
-                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.CategoryCount</span></div>
+            <div class="row mb-sm-3">
+                <div class="col-sm mb-3 mb-sm-0">
+                    <a class="text-reset text-decoration-none" href="~/Schedule">
+                        <div class="card bg-spaceCadet">
+                            <div class="card-body">
+                                <h3 class="card-title text-center text-amaranthRed">Schedule</h3>
+                                <div class="text-center"><span class="badge badge-pill badge-amaranthRed">@ViewBag.ScheduleCount</span></div>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+                <div class="col-sm mb-3 mb-sm-0">
+                    <a class="text-reset text-decoration-none" href="~/Transactions">
+                        <div class="card bg-spaceCadet">
+                            <div class="card-body">
+                                <h3 class="card-title text-center text-amaranthRed">Transactions</h3>
+                                <div class="text-center"><span class="badge badge-pill badge-amaranthRed">@ViewBag.TransactionsCount</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="col-sm mb-3 mb-sm-0">
-                <a class="text-reset text-decoration-none" href="~/Payee">
-                    <div class="card bg-secondary">
-                        <div class="card-body">
-                            <h3 class="card-title text-center text-light">Payee</h3>
-                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.PayeeCount</span></div>
+            <div class="row mb-sm-3">
+                <div class="col-sm mb-3 mb-sm-0">
+                    <a href="~/IncomeExpense" class="text-reset text-decoration-none">
+                        <div class="card bg-spaceCadet">
+                            <div class="card-body">
+                                <h3 class="card-title text-center text-amaranthRed">Income and Expense</h3>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row mb-sm-3">
-            <div class="col-sm mb-3 mb-sm-0">
-                <a class="text-reset text-decoration-none" href="~/Schedule">
-                    <div class="card bg-secondary">
-                        <div class="card-body">
-                            <h3 class="card-title text-center text-light">Schedule</h3>
-                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.ScheduleCount</span></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm mb-3 mb-sm-0">
-                <a class="text-reset text-decoration-none" href="~/Transactions">
-                    <div class="card bg-secondary">
-                        <div class="card-body">
-                            <h3 class="card-title text-center text-light">Transactions</h3>
-                            <div class="text-center"><span class="badge badge-pill badge-primary">@ViewBag.TransactionsCount</span></div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row mb-sm-3">
-            <div class="col-sm mb-3 mb-sm-0">
-                <a href="~/IncomeExpense" class="text-reset text-decoration-none">
-                    <div class="card bg-secondary">
-                        <div class="card-body">
-                            <h3 class="card-title text-center text-light">Income and Expense</h3>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
         </div>
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - by Schaul Rotenberg</p>
         </footer>
     </div>
 

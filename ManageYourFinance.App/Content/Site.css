@@ -1,4 +1,7 @@
-﻿body {
+﻿:root {
+    --amaranthRed: #d90429;
+}
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -30,4 +33,65 @@ textarea {
 /*Set the width of input-group when a add-on or buttont is used to allign the input field with the rest of the form*/
 .input-group-width{
     width:280px;
+}
+.body-index{
+    padding-top: 20px;
+}
+.bg-aliceBlue{
+    background-color: #edf2f4;
+}
+.bg-manatee{
+    background-color: #8d99ae;
+}
+.bg-spaceCadet{
+    background-color: #2b2d42;
+}
+.bg-imperialRed{
+    background-color: #ef233c;
+}
+.bg-amaranthRed {
+    background-color: #d90429;
+}
+.text-aliceBlue {
+    color: #edf2f4;
+}
+
+.text-manatee {
+    color: #8d99ae;
+}
+
+.text-spaceCadet {
+    color: #2b2d42;
+}
+
+.text-imperialRed {
+    color: #ef233c;
+}
+
+.text-amaranthRed {
+    color: #d90429;
+}
+.badge-aliceBlue {
+    background-color: #edf2f4;
+    color: #fff;
+}
+
+.badge-manatee {
+    background-color: #8d99ae;
+    color: #fff;
+}
+
+.badge-spaceCadet {
+    background-color: #2b2d42;
+    color: #fff;
+}
+
+.badge-imperialRed {
+    background-color: #ef233c;
+    color: #fff;
+}
+
+.badge-amaranthRed {
+    background-color: #d90429;
+    color: #fff;
 }
