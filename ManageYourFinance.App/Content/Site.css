@@ -1,5 +1,5 @@
 ﻿:root {
-    --amaranthRed: #d90429;
+    --orangeYellow: f2bb05;
 }
 body {
     padding-top: 50px;
@@ -37,6 +37,24 @@ textarea {
 .body-index{
     padding-top: 20px;
 }
+/*Force color of navbar text to be Flame*/
+.navbar-text-flame a, .navbar-text-flame a:hover, .navbar-text-flame a:focus{
+    color: #ef8513 !important;
+}
+/*Override default bootstrap thead-dark*/
+.thead-dark th{
+    background-color: #2b2d42 !important;
+    color: #ef8513 !important;
+}
+/*Override default bootstrap striped table*/
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #8d99ae;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #7c8aa2;
+}
+
+
 .bg-aliceBlue{
     background-color: #edf2f4;
 }
@@ -44,13 +62,16 @@ textarea {
     background-color: #8d99ae;
 }
 .bg-spaceCadet{
-    background-color: #2b2d42;
+    background-color: #2b2d42 !important;
 }
-.bg-imperialRed{
-    background-color: #ef233c;
+.bg-flame{
+    background-color: #ec4e20;
 }
-.bg-amaranthRed {
-    background-color: #d90429;
+.bg-orangeYellow {
+    background-color: f2bb05;
+}
+.bg-Tangerine{
+    background-color: #ef8513;
 }
 .text-aliceBlue {
     color: #edf2f4;
@@ -64,13 +85,18 @@ textarea {
     color: #2b2d42;
 }
 
-.text-imperialRed {
-    color: #ef233c;
+.text-flame {
+    color: #ec4e20;
 }
 
-.text-amaranthRed {
-    color: #d90429;
+.text-orangeYellow {
+    color: f2bb05;
 }
+
+.text-Tangerine {
+    color: #ef8513;
+}
+
 .badge-aliceBlue {
     background-color: #edf2f4;
     color: #fff;
@@ -86,12 +112,132 @@ textarea {
     color: #fff;
 }
 
-.badge-imperialRed {
-    background-color: #ef233c;
+.badge-flame {
+    background-color: #ec4e20;
     color: #fff;
 }
 
-.badge-amaranthRed {
-    background-color: #d90429;
+.badge-orangeYellow {
+    background-color: #f2bb05;
     color: #fff;
 }
+
+.badge-Tangerine {
+    background-color: #ef8513;
+    color: #fff;
+}
+
+.btn-aliceBlue {
+    color: #fff;
+    background-color: #edf2f4;
+    border-color: #edf2f4;
+}
+
+.btn-aliceBlue:hover {
+    color: #fff;
+    background-color: #d9e4e8;
+    border-color: #d9e4e8;
+}
+
+.btn-aliceBlue:focus, .btn-aliceBlue.focus {
+    color: #fff;
+    background-color: #d9e4e8;
+    border-color: #d9e4e8;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-manatee {
+    color: #fff;
+    background-color: #8d99ae;
+    border-color: #8d99ae;
+}
+
+.btn-manatee:hover {
+    color: #fff;
+    background-color: #7c8aa2;
+    border-color: #7c8aa2;
+}
+
+.btn-manatee:focus, .btn-manatee.focus {
+    color: #fff;
+    background-color: #7c8aa2;
+    border-color: #7c8aa2;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-spaceCadet {
+    color: #fff;
+    background-color: #2b2d42;
+    border-color: #2b2d42;
+}
+
+.btn-spaceCadet:hover {
+    color: #fff;
+    background-color: #202231;
+    border-color: #202231;
+}
+
+.btn-spaceCadet:focus, .btn-spaceCadet.focus {
+    color: #fff;
+    background-color: #202231;
+    border-color: #202231;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-orangeYellow {
+    color: #fff;
+    background-color: #f2bb05;
+    border-color: #f2bb05;
+}
+
+.btn-orangeYellow:hover {
+    color: #fff;
+    background-color: #c89a04;
+    border-color: #c89a04;
+}
+
+.btn-orangeYellow:focus, .btn-orangeYellow.focus {
+    color: #fff;
+    background-color: #c89a04;
+    border-color: #c89a04;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-Tangerine {
+    color: #fff;
+    background-color: #ef8513;
+    border-color: #ef8513;
+}
+
+.btn-Tangerine:hover {
+    color: #fff;
+    background-color: #d2730f;
+    border-color: #d2730f;
+}
+
+.btn-Tangerine:focus, .btn-Tangerine.focus {
+    color: #fff;
+    background-color: #d2730f;
+    border-color: #d2730f;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.btn-Flame {
+    color: #fff;
+    background-color: #ec4e20;
+    border-color: #ec4e20;
+}
+
+.btn-Flame:hover {
+    color: #fff;
+    background-color: #e14414;
+    border-color: #e14414;
+}
+
+.btn-Flame:focus, .btn-Flame.focus {
+    color: #fff;
+    background-color: #e14414;
+    border-color: #e14414;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
