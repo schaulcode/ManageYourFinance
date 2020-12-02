@@ -1,7 +1,4 @@
-﻿:root {
-    --orangeYellow: f2bb05;
-}
-body {
+﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -27,9 +24,9 @@ textarea {
     max-width: 280px;
 }
 /*Override the default bootstrap background color when hovering over a table row*/
-.table-hover tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.175);
-}
+/*.table-hover tbody tr:hover {
+    background-color: #66758f !important;
+}*/
 /*Set the width of input-group when a add-on or buttont is used to allign the input field with the rest of the form*/
 .input-group-width{
     width:280px;
@@ -38,24 +35,28 @@ textarea {
     padding-top: 20px;
 }
 /*Force color of navbar text to be Flame*/
-.navbar-text-flame a, .navbar-text-flame a:hover, .navbar-text-flame a:focus{
+/*.navbar-text-flame a, .navbar-text-flame a:hover, .navbar-text-flame a:focus{
     color: #ef8513 !important;
-}
+}*/
 /*Override default bootstrap thead-dark*/
-.thead-dark th{
+/*.thead-dark th{
     background-color: #2b2d42 !important;
     color: #ef8513 !important;
-}
+}*/
 /*Override default bootstrap striped table*/
-.table-striped tbody tr:nth-of-type(even) {
+/*.table-striped tbody tr:nth-of-type(even) {
     background-color: #8d99ae;
 }
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: #7c8aa2;
+}*/
+
+.text-success {
+    color: #00ff37 !important;
 }
 
 
-.bg-aliceBlue{
+/*.bg-aliceBlue{
     background-color: #edf2f4;
 }
 .bg-manatee{
@@ -90,11 +91,11 @@ textarea {
 }
 
 .text-orangeYellow {
-    color: f2bb05;
+    color: #f2bb05;
 }
 
 .text-Tangerine {
-    color: #ef8513;
+    color: #ef8513 !important;
 }
 
 .badge-aliceBlue {
@@ -239,5 +240,5 @@ textarea {
     background-color: #e14414;
     border-color: #e14414;
     box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-}
+}*/
 

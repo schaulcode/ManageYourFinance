@@ -1,0 +1,55 @@
+﻿$colors: ("aliceBlue" : #edf2f4, "manatee" : #8d99ae, "spaceCadet": #2b2d42, "orangeYellow" : #f2bb05, "Tangerine" : #ef8513);
+
+@each $name, $color in $colors{
+    .bg-#{$name}{
+        background-color : $color !important;
+    }
+    .text-#{$name}{
+        color : $color !important;
+    }
+    .badge-#{$name}{
+        background-color : $color !important;
+        color : #fff;
+    }
+    .btn-#{$name}{
+        color : #fff;
+        background-color : $color;
+        border-color : $color;
+    }
+    .btn-#{$name}:hover {
+        color: #fff;
+        background-color: scale-color($color, $lightness : - 15%);
+        border-color: scale-color($color, $lightness : - 15%);
+    }
+    .btn-#{$name}:focus, .btn-#{$name}.focus {
+        color: #fff;
+        background-color: scale-color($color, $lightness : - 15%);
+        border-color: scale-color($color, $lightness : - 15%);
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    }
+}
+
+/*Force color of navbar text to be Flame*/
+.navbar-text-flame a, .navbar-text-flame a:hover, .navbar-text-flame a:focus {
+    color: map-get($colors,"Tangerine") !important;
+}
+
+/*Override default bootstrap thead-dark*/
+.thead-dark th {
+    background-color: map-get($colors,"spaceCadet") !important;
+    color: map-get($colors, "Tangerine") !important;
+}
+
+/*Override default bootstrap striped table*/
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: map-get($colors, "manatee");
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: scale-color(map-get($colors, "manatee"), $lightness : - 10%);
+}
+
+/*Override the default bootstrap background color when hovering over a table row*/
+.table-hover tbody tr:hover {
+    background-color: scale-color(map-get($colors, "manatee"), $lightness : - 15%);
+}
