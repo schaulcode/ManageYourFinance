@@ -22,10 +22,11 @@ namespace ManageYourFinance.App.Controllers
             var model = new List<Accounts>();
             foreach (var item in data)
             {
+                //MIGHT NOT BE THE MOST EFFICENT WAY 
                 model.Add(new Accounts(item));
                 model.Last().Total = new SqlDataServices<Data.Models.Transactions>().GetAll(item.ID, typeof(Accounts)).Sum(e => e.Amount);
             }
-            model = model.OrderBy(e => e.Type).ThenBy(e => e.Name).ToList();
+            model = model.OrderByDescending(e => e.Active).ThenBy(e => e.Type).ThenBy(e => e.Name).ToList();
             
             return View(model);
         }
