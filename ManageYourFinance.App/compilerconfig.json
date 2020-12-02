@@ -2,5 +2,9 @@
   {
     "outputFile": "Content/Brand-color.css",
     "inputFile": "Content/Brand-color.scss"
+  },
+  {
+    "outputFile": "Content/Style.css",
+    "inputFile": "Content/Style.scss"
   }
 ]

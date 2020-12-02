@@ -1,0 +1,3 @@
+﻿table tr.disabled {
+  opacity: 0.6;
+  cursor: no-drop; }

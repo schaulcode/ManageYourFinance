@@ -171,6 +171,12 @@
     <Content Include="Content\Brand-color.min.css">
       <DependentUpon>Brand-color.css</DependentUpon>
     </Content>
+    <Content Include="Content\Style.css">
+      <DependentUpon>Style.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Style.min.css">
+      <DependentUpon>Style.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -203,6 +209,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Content\Style.scss" />
     <None Include="Properties\PublishProfiles\ManageYourFinanceApp20201109213931 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

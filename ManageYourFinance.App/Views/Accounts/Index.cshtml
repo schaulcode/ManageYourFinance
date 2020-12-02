@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="text-center text-Tangerine">Accounts</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create", new { } ,htmlAttributes : new { @class = "btn btn-orangeYellow" })
@@ -37,7 +37,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class=@(!item.Active?"disabled":"")>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>

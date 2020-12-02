@@ -32,7 +32,8 @@ namespace ManageYourFinance.App
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/Brand-color.css"));
+                      "~/Content/Brand-color.css",
+                      "~/Content/Style.css"));
         }
     }
 }
