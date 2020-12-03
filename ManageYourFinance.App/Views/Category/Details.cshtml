@@ -4,20 +4,23 @@
     ViewBag.Title = "Details";
 }
 
-<h2 class="text-center">Details</h2>
+
 
 <div>
-    <div class=" jumbotron">
-        <h4>Category</h4>
+    <p>
+        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" })
+    </p>
+    <div class=" jumbotron bg-aliceBlue">
+        <h2 class="text-center text-Tangerine">@Model.Name</h2>
         <hr />
         <dl class="row">
-            <dt class="col-sm-3">
+            @*<dt class="col-sm-3">
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
 
             <dd class="col-sm-9">
                 @Html.DisplayFor(model => model.Name)
-            </dd>
+            </dd>*@
 
             <dt class="col-sm-3">
                 @Html.DisplayNameFor(model => model.Type)
@@ -32,43 +35,65 @@
             </dt>
 
             <dd class="col-sm-9">
-                @Html.DisplayFor(model => model.Active)
+                @{
+                    if (Model.Active)
+                    {
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    }
+                }
             </dd>
 
         </dl>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-Tangerine" })
     </div>
 
-    <h4>Transactions</h4>
+    <div class="p-2 mb-3">
+        <h4 class="text-center text-white text-stroke">Transactions</h4>
 
-    @{
-        Html.RenderPartial("_Transactions", Model.Transactions);
-    }
+        <div class="p-1">
+            @{
+                if (Model.Transactions.Count != 0)
+                {
+                    Html.RenderPartial("_Transactions", Model.Transactions);
+                }
+                else
+                {
+                    <h5 class="text-center">There are no Transactions to display</h5>
+                }
+            }
+        </div>
+    </div>
 
     @{
         var payee = Model.Payees.FirstOrDefault();
     }
-    <h4>Payee</h4>
-    <table class="table table-striped table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <td>@Html.DisplayNameFor(model => payee.Name)</td>
-                <td>@Html.DisplayNameFor(model => payee.Active)</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Payees)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(model => item.Name)</td>
-                    <td>@Html.DisplayFor(model => item.Active)</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="p-2 mb-3">
+        <h4 class="text-center text-white text-stroke">Payee</h4>
+        <div class="p-1">
+            <table class="table table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => payee.Name)</th>
+                        <th>@Html.DisplayNameFor(model => payee.Active)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Payees)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.Name)</td>
+                            <td>@Html.DisplayFor(model => item.Active)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-info" })
-    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" })
 </p>
 @section Scripts{
     @Scripts.Render("~/bundles/form-submit")
