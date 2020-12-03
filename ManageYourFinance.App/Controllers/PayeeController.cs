@@ -36,7 +36,7 @@ namespace ManageYourFinance.App.Controllers
         {
             var data = db.Get(id);
             var model = new Payee(data);
-            var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(id, typeof(Data.Models.Category)).OrderBy(e => e.Date);
+            var transactionsData = new SqlDataServices<Data.Models.Transactions>().GetAll(id, typeof(Data.Models.Payee)).OrderBy(e => e.Date);
             foreach (var item in transactionsData)
             {
                 model.Transactions.Add(new Transactions(item));
