@@ -54,6 +54,10 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Create(Transactions data )
         {
+            if (data.Amount == 0)
+            {
+                ModelState.AddModelError(nameof(data.Amount), $"Amount can't be zero");
+            }
             if (!ModelState.IsValid)
             {
                 ViewBag.Accounts = new SqlDataServices<Data.Models.Accounts>().GetAll().Where(e => e.Active).OrderBy(e => e.Name);
@@ -107,6 +111,10 @@ namespace ManageYourFinance.App.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Transactions data)
         {
+            if (data.Amount == 0)
+            {
+                ModelState.AddModelError(nameof(data.Amount), $"Amount can't be zero");
+            }
             if (!ModelState.IsValid)
             {
                 var accounts = new SqlDataServices<Data.Models.Accounts>().GetAll().Where(e => e.Active).OrderBy(e => e.Name).ToList();
