@@ -4,11 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+
 
 <div>
-    <div class="jumbotron">
-        <h4>Transactions</h4>
+    <p>
+        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" })
+    </p>
+    <div class="jumbotron bg-aliceBlue">
+        <h2 class="text-center text-Tangerine">Transaction</h2>
         <hr />
         <div class="row">
             <div class="col">
@@ -81,11 +84,10 @@
                     </dd>
                 </dl>
             </div>
-
         </div>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-Tangerine" })
     </div>
 </div>
 <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-info" })
-        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" }) 
+        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" }) 
 </p>
