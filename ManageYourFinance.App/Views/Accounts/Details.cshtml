@@ -4,20 +4,23 @@
     ViewBag.Title = "Details";
 }
 
-<h2 class="text-center">Details</h2>
+
 
 <div>
-    <div class="jumbotron">
-        <h4>Accounts</h4>
+    <p>
+        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" })
+    </p>
+    <div class="jumbotron bg-aliceBlue">
+        <h2 class="text-center text-Tangerine text-stroke">@Model.Name</h2>
         <hr />
         <dl class="row">
-            <dt class="col-sm-3">
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
+            @*<dt class="col-sm-3">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-            <dd class="col-sm-9">
-                @Html.DisplayFor(model => model.Name)
-            </dd>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>*@
 
             <dt class="col-sm-3">
                 @Html.DisplayNameFor(model => model.Type)
@@ -32,7 +35,14 @@
             </dt>
 
             <dd class="col-sm-9">
-                @Html.DisplayFor(model => model.Active)
+                @{
+                    if (Model.Active)
+                    {
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    }
+                }
             </dd>
 
             <dt class="col-sm-3">
@@ -40,7 +50,14 @@
             </dt>
 
             <dd class="col-sm-9">
-                @Html.DisplayFor(model => model.IncludeTotal)
+                @{
+                    if (Model.IncludeTotal)
+                    {
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                        </svg>
+                    }
+                }
             </dd>
 
             <dt class="col-sm-3">
@@ -50,16 +67,15 @@
             <dd class="col-sm-9">
                 @Html.DisplayFor(model => model.OpeningBalance)
             </dd>
-
         </dl>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-Tangerine" })
     </div>
     @{
         Html.RenderPartial("_Transactions", Model.Transactions);
     }
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-info" })
-    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" })
 </p>
 @section Scripts{
     @Scripts.Render("~/bundles/form-submit")
