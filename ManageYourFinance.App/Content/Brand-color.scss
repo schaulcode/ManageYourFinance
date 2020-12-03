@@ -31,25 +31,25 @@
 
 /*Force color of navbar text to be Flame*/
 .navbar-text-flame a, .navbar-text-flame a:hover, .navbar-text-flame a:focus {
-    color: map-get($colors,"Tangerine") !important;
+    /*color: map-get($colors,"Tangerine") !important;*/
 }
 
 /*Override default bootstrap thead-dark*/
 .thead-dark th {
     background-color: map-get($colors,"spaceCadet") !important;
-    color: map-get($colors, "Tangerine") !important;
+    /*color: map-get($colors, "Tangerine") !important;*/
 }
 
 /*Override default bootstrap striped table*/
 .table-striped tbody tr:nth-of-type(even) {
-    background-color: map-get($colors, "manatee");
+    background-color: map-get($colors, "aliceBlue");
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: scale-color(map-get($colors, "manatee"), $lightness : - 10%);
+    background-color: scale-color(map-get($colors, "aliceBlue"), $lightness : - 10%);
 }
 
 /*Override the default bootstrap background color when hovering over a table row*/
 .table-hover tbody tr:hover {
-    background-color: scale-color(map-get($colors, "manatee"), $lightness : - 15%);
+    background-color: scale-color(map-get($colors, "aliceBlue"), $lightness : - 15%);
 }

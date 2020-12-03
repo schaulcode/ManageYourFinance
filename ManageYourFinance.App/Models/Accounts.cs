@@ -20,6 +20,7 @@ namespace ManageYourFinance.App.Models
         [Required]
         public bool Active { get; set; }
         [Required]
+        [Display(Name ="Include in Total")]
         public bool IncludeTotal { get; set; }
         [DisplayFormat(DataFormatString = "{0:C}", ApplyFormatInEditMode = true)]
         public int? OpeningBalance { get; set; }

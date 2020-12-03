@@ -1,1 +1,1 @@
-﻿table tr.disabled{opacity:.6;cursor:no-drop;background-color:#8d99ae !important;}
+﻿table tr.disabled>td{opacity:.4;cursor:no-drop;background-color:#edf2f4 !important;}.text-stroke{-webkit-text-stroke:.5px #f2bb05;}

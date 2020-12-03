@@ -1,5 +1,9 @@
-﻿table tr.disabled {
-    opacity: 0.6;
+﻿table tr.disabled>td {
+    opacity: 0.4;
     cursor: no-drop;
-    background-color: #8d99ae !important;
+    background-color: #edf2f4 !important;
+}
+
+.text-stroke {
+    -webkit-text-stroke: 0.5px #f2bb05;
 }
