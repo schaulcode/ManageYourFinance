@@ -4,122 +4,125 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2 class="text-center text-white text-stroke">Delete Schedule</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Schedule</h4>
-    @{ if (TempData["errorMessage"] != null)
+<div class="container bg-aliceBlue p-2 mb-4">
+    <h3 class="text-danger">Are you sure you want to delete this?</h3>
+    <div>
+        @{ if (TempData["errorMessage"] != null)
+            {
+                <div class="alert alert-warning">@TempData["errorMessage"]</div>
+            }}
+        <hr />
+        <div class="row">
+            <div class="col">
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Accounts)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Accounts)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Category)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Category)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Payee)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Payee)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Amount)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Amount)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Frequency)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Frequency)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.NextDueDay)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.NextDueDay)
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="col">
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.TotalAmount)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.TotalAmount)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.TotalCount)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.TotalCount)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.EndsOnDate)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.EndsOnDate)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.AmountCount)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.AmountCount)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.CountCount)
+                    </dt>
+
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.CountCount)
+                    </dd>
+                </dl>
+            </div>
+
+        </div>
+
+        @using (Html.BeginForm())
         {
-            <div class="alert alert-warning">@TempData["errorMessage"]</div>
-        }}
-    <hr />
-    <div class="row">
-        <div class="col">
-            <dl class="row">
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Accounts)
-                </dt>
+            @Html.AntiForgeryToken()
 
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Accounts)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Category)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Category)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Payee)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Payee)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Amount)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Amount)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.Frequency)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.Frequency)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.NextDueDay)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.NextDueDay)
-                </dd>
-            </dl>
-        </div>
-
-        <div class="col">
-            <dl class="row">
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.TotalAmount)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.TotalAmount)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.TotalCount)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.TotalCount)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.EndsOnDate)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.EndsOnDate)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.AmountCount)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.AmountCount)
-                </dd>
-
-                <dt class="col-sm-3">
-                    @Html.DisplayNameFor(model => model.CountCount)
-                </dt>
-
-                <dd class="col-sm-9">
-                    @Html.DisplayFor(model => model.CountCount)
-                </dd>
-            </dl>
-        </div>
-
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-Tangerine" />
+            </div>
+        }
     </div>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" /> 
-            @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
-        </div>
-    }
 </div>
+<p>
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" })
+</p>

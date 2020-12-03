@@ -4,11 +4,14 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+
 
 <div>
-    <div class="jumbotron">
-        <h4>Schedule</h4>
+    <p>
+        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" })
+    </p>
+    <div class="jumbotron bg-aliceBlue">
+        <h2 class="text-center text-Tangerine">Schedule for @Model.Payee</h2>
         <hr />
 
         <div class="row">
@@ -106,20 +109,32 @@
                         @Html.DisplayFor(model => model.CountCount)
                     </dd>
                 </dl>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-Tangerine" })
             </div>
         </div>
 
 
     </div>
 
-    <h4>Transactions</h4>
-    @{
-        Html.RenderPartial("_Transactions", Model.Transactions);
-    }
+    <div class="p-2 mb-3">
+        <h4 class="text-center text-white text-stroke">Transactions</h4>
+
+        <div class="p-1">
+            @{
+                if (Model.Transactions.Count != 0)
+                {
+                    Html.RenderPartial("_Transactions", Model.Transactions);
+                }
+                else
+                {
+                    <h5 class="text-center">There are no Transactions to display</h5>
+                }
+            }
+        </div>
+    </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-info" })
-    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-Tangerine" })
 </p>
 @section Scripts{
     @Scripts.Render("~/bundles/form-submit")
