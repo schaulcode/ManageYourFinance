@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ManageYourFinance.App.Models.Transactions>
 @using ManageYourFinance.Data.Enums
 <div class="row mb-2">
-    <div class="offset-5">
+    <div class="offset-1">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
@@ -39,7 +39,7 @@
                 <td>@Html.DisplayFor(model => item.Reference)</td>
             </tr>
         }
-        <tr class="bg-dark text-light font-weight-bold">
+        <tr class="bg-spaceCadet text-light font-weight-bold">
             <td>TOTAL</td>
             <td></td>
             <td></td>
