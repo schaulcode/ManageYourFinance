@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Income and Expense</h2>
+<h2 class="text-center text-white text-stroke">Income and Expense</h2>
 <form action="/IncomeExpense/Index" method="post" class="form-row">
     @Html.AntiForgeryToken()
     <div class="col-2">
@@ -29,7 +29,7 @@
         <div class="accordion">
             <div class="card">
                 <div class="card-header">
-                    <h2><button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#income">Income</button></h2>
+                    <h2><button class="btn btn-link btn-block text-left text-Tangerine" type="button" data-toggle="collapse" data-target="#income">Income</button></h2>
                 </div>
                 <div class="collapse show" id="income">
                     <div class="card-body">
@@ -52,7 +52,7 @@
         <div class="accordion">
             <div class="card">
                 <div class="card-header">
-                    <h2><button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#expense">Expense</button></h2>
+                    <h2><button class="btn btn-link btn-block text-left text-Tangerine" type="button" data-toggle="collapse" data-target="#expense">Expense</button></h2>
                 </div>
                 <div class="collapse show" id="expense">
                     <div class="card-body">
