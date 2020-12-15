@@ -153,6 +153,7 @@
     <Compile Include="Models\IncomeExpenseCategory.cs" />
     <Compile Include="Models\IncomeExpenseModel.cs" />
     <Compile Include="Models\IncomeExpensePayee.cs" />
+    <Compile Include="Models\IncomeExpenseTable.cs" />
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Transactions.cs" />
