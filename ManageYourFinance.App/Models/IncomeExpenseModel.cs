@@ -355,6 +355,9 @@ namespace ManageYourFinance.App.Models
                 this.LeftHandExpense = IncomeExpenseCategory.GetModel(data, leftHandStartDate, leftHandEndDate, leftHandAverageDividend).Where(e => e.IncomeOrExpense == CategoryType.Expense).ToList();
                 this.RightHandIncome = IncomeExpenseCategory.GetModel(data, rightHandStartDate, rightHandEndDate, rightHandAverageDividend).Where(e => e.IncomeOrExpense == CategoryType.Income).ToList();
                 this.RightHandExpense = IncomeExpenseCategory.GetModel(data, rightHandStartDate, rightHandEndDate, rightHandAverageDividend).Where(e => e.IncomeOrExpense == CategoryType.Expense).ToList();
+
+                this.Income = IncomeExpenseTable.GetModel(this.LeftHandIncome, this.RightHandIncome).ToList();
+                this.Expense = IncomeExpenseTable.GetModel(this.LeftHandExpense, this.RightHandExpense).ToList();
             }
 
             if (this.Selection == IncomeExpenseSelection.Payee)
@@ -364,6 +367,9 @@ namespace ManageYourFinance.App.Models
                 this.LeftHandExpense = IncomeExpensePayee.GetModel(data, leftHandStartDate, leftHandEndDate, leftHandAverageDividend).Where(e => e.IncomeOrExpense == CategoryType.Expense).ToList();
                 this.RightHandIncome = IncomeExpensePayee.GetModel(data, rightHandStartDate, rightHandEndDate, rightHandAverageDividend).Where(e => e.IncomeOrExpense == CategoryType.Income).ToList();
                 this.RightHandExpense = IncomeExpensePayee.GetModel(data, rightHandStartDate, rightHandEndDate, rightHandAverageDividend).Where(e => e.IncomeOrExpense == CategoryType.Expense).ToList();
+
+                this.Income = IncomeExpenseTable.GetModel(this.LeftHandIncome, this.RightHandIncome).ToList();
+                this.Expense = IncomeExpenseTable.GetModel(this.LeftHandExpense, this.RightHandExpense).ToList();
             }
         }
     }

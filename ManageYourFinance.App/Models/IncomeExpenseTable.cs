@@ -10,19 +10,24 @@ namespace ManageYourFinance.App.Models
     public class IncomeExpenseTable
     {
         public string Name { get; set; }
-        [DisplayFormat(DataFormatString = "{0:#.##}")]
+        [DisplayFormat(DataFormatString = "{0:#.00}")]
+        [Display(Name = "Total")]
         public double LeftTotal { get; set; }
-        [DisplayFormat(DataFormatString = "{0:#.##}")]
+        [DisplayFormat(DataFormatString = "{0:#.00}")]
+        [Display(Name = "Average")]
         public double LeftAverage { get; set; }
         [Display(Name = "%")]
-        [DisplayFormat(DataFormatString = "{0:#.##}")]
+        [DisplayFormat(DataFormatString = "{0:#.00}")]
         public double LeftPrecent { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:#.00}")]
+        [Display(Name = "Total")]
         public double RightTotal { get; set; }
         [DisplayFormat(DataFormatString = "{0:#.##}")]
+        [Display(Name = "Average")]
         public double RightAverage { get; set; }
         [Display(Name = "%")]
-        [DisplayFormat(DataFormatString = "{0:#.##}")]
+        [DisplayFormat(DataFormatString = "{0:#.00}")]
         public double RightPrecent { get; set; }
 
         public CategoryType IncomeOrExpense { get; set; }

@@ -36,14 +36,14 @@
                         <div class="row">
                             <div class="col" id="leftHandIncome">
                                 @{
-                                    Html.RenderPartial("_IncomeExpenseTable", Model.LeftHandIncome);
+                                    Html.RenderPartial("_IncomeExpenseTable", Model.Income);
                                 }
                             </div>
-                            <div class="col" id="rightHandIncome">
+                            @*<div class="col" id="rightHandIncome">
                                 @{
                                     Html.RenderPartial("_IncomeExpenseTable", Model.RightHandIncome);
                                 }
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
@@ -59,14 +59,14 @@
                         <div class="row">
                             <div class="col" id="leftHandExpense">
                                 @{
-                                    Html.RenderPartial("_IncomeExpenseTable", Model.LeftHandExpense);
+                                    Html.RenderPartial("_IncomeExpenseTable", Model.Expense);
                                 }
                             </div>
-                            <div class="col" id="righttHandExpense">
+                            @*<div class="col" id="righttHandExpense">
                                 @{
                                     Html.RenderPartial("_IncomeExpenseTable", Model.RightHandExpense);
                                 }
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
