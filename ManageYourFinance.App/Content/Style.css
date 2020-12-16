@@ -160,3 +160,9 @@ table tr.disabled > td {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   border-color: #ef8513;
   background-color: #ef8513; }
+
+.table-first-col {
+  width: 30%; }
+
+.table-col {
+  width: 10%; }

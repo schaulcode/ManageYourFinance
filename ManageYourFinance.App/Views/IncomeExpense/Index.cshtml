@@ -79,22 +79,14 @@
                         <table class="table bg-aliceBlue">
                             <thead class="thead">
                                 <tr>
-                                    <th>NET TOTAL</th>
-                                    <th>@((Model.LeftHandIncome.Select(e => e.Total).Sum() + @Model.LeftHandExpense.Select(e => e.Total).Sum()).ToString("F")) </th>
-                                    <th>@((Model.LeftHandIncome.Select(e => e.Average).Sum() + @Model.LeftHandExpense.Select(e => e.Average).Sum()).ToString("F"))</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div class="col">
-                        <table class="table bg-aliceBlue">
-                            <thead class="thead">
-                                <tr>
-                                    <th>NET TOTAL</th>
-                                    <th>@((Model.RightHandIncome.Select(e => e.Total).Sum() + @Model.RightHandExpense.Select(e => e.Total).Sum()).ToString("F"))</th>
-                                    <th>@((Model.RightHandIncome.Select(e => e.Average).Sum() + @Model.RightHandExpense.Select(e => e.Average).Sum()).ToString("F"))</th>
-                                    <th></th>
+                                    <th class="table-first-col">NET TOTAL</th>
+                                    <th class="table-col">@((Model.LeftHandIncome.Select(e => e.Total).Sum() + @Model.LeftHandExpense.Select(e => e.Total).Sum()).ToString("F")) </th>
+                                    <th class=" table-col">@((Model.LeftHandIncome.Select(e => e.Average).Sum() + @Model.LeftHandExpense.Select(e => e.Average).Sum()).ToString("F"))</th>
+                                    <th class="table-col"></th>
+                                    <th class="table-col"></th>
+                                    <th class="table-col">@((Model.RightHandIncome.Select(e => e.Total).Sum() + @Model.RightHandExpense.Select(e => e.Total).Sum()).ToString("F"))</th>
+                                    <th class="table-col">@((Model.RightHandIncome.Select(e => e.Average).Sum() + @Model.RightHandExpense.Select(e => e.Average).Sum()).ToString("F"))</th>
+                                    <th class="table-col"></th>
                                 </tr>
                             </thead>
                         </table>

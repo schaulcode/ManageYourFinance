@@ -3,14 +3,14 @@
 <table class="table table-striped table-hover">
     <thead class="thead-dark">
         <tr>
-            <th>@Html.DisplayNameFor(model => model.Name)</th>
-            <th>@Html.DisplayNameFor(model => model.LeftTotal)</th>
-            <th>@Html.DisplayNameFor(model => model.LeftAverage)</th>
-            <th>@Html.DisplayNameFor(model => model.LeftPrecent)</th>
-            <th></th>
-            <th>@Html.DisplayNameFor(model => model.RightTotal)</th>
-            <th>@Html.DisplayNameFor(model => model.RightAverage)</th>
-            <th>@Html.DisplayNameFor(model => model.RightPrecent)</th>
+            <th class="table-first-col">@Html.DisplayNameFor(model => model.Name)</th>
+            <th class="table-col">@Html.DisplayNameFor(model => model.LeftTotal)</th>
+            <th class="table-col">@Html.DisplayNameFor(model => model.LeftAverage)</th>
+            <th class="table-col">@Html.DisplayNameFor(model => model.LeftPrecent)</th>
+            <th class="table-col"></th>
+            <th class="table-col">@Html.DisplayNameFor(model => model.RightTotal)</th>
+            <th class="table-col">@Html.DisplayNameFor(model => model.RightAverage)</th>
+            <th class="table-col">@Html.DisplayNameFor(model => model.RightPrecent)</th>
         </tr>
     </thead>
     <tbody>
@@ -34,11 +34,12 @@
         }
     <tr class="bg-spaceCadet text-light">
         <td>Income Total</td>
-        <td>@Model.Select(e => e.LeftTotal).Sum().ToString("F")</td>
-        <td>@Model.Select(e => e.LeftAverage).Sum().ToString("F") </td>
+        <td class=@(Model.Select(e => e.LeftTotal).Sum() > -1?"text-success":"text-danger")>@Model.Select(e => e.LeftTotal).Sum().ToString("F")</td>
+        <td class=@(Model.Select(e => e.LeftAverage).Sum() > -1?"text-success":"text-danger")>@Model.Select(e => e.LeftAverage).Sum().ToString("F") </td>
         <td></td>
-        <td>@Model.Select(e => e.RightTotal).Sum().ToString("F")</td>
-        <td>@Model.Select(e => e.RightAverage).Sum().ToString("F") </td>
+        <td></td>
+        <td class=@(Model.Select(e => e.RightTotal).Sum() > -1?"text-success":"text-danger")>@Model.Select(e => e.RightTotal).Sum().ToString("F")</td>
+        <td class=@(Model.Select(e => e.RightAverage).Sum() > -1?"text-success":"text-danger")>@Model.Select(e => e.RightAverage).Sum().ToString("F") </td>
         <td></td>
     </tr>
     </tbody>

@@ -13,3 +13,9 @@ table tr.disabled>td {
     border-color: map-get($colors, "Tangerine");
     background-color: map-get($colors, "Tangerine");
 }
+.table-first-col{
+    width: 30%;
+}
+.table-col{
+    width: 10%;
+}
