@@ -44,6 +44,7 @@ namespace ManageYourFinance.App.Models
             }
             if (right != null)
             {
+                this.Name = right.Name;
                 this.RightTotal = right.Total;
                 this.RightAverage = right.Average;
                 this.RightPrecent = right.Precent;
@@ -70,7 +71,7 @@ namespace ManageYourFinance.App.Models
                 foreach (var item in right)
                 {
                     var leftColumn = left.Where(e => e.Name == item.Name).FirstOrDefault();
-                    modelList.Add(new IncomeExpenseTable(item, leftColumn));
+                    modelList.Add(new IncomeExpenseTable(leftColumn, item));
                 }
             }
 

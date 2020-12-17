@@ -9,19 +9,19 @@
     @Html.AntiForgeryToken()
     <div class="col-2">
         @Html.LabelFor(model => model.Selection, htmlAttributes: new { @class = "sr-only" })
-        @Html.EnumDropDownListFor(model => model.Selection, htmlAttributes: new { @class = "custom-select form-controls" })
+        @Html.EnumDropDownListFor(model => model.Selection, htmlAttributes: new { @class = "custom-select form-controls TimeSelector" })
     </div>
 
-    <div class="offset-1 col-3">
+    <div class="offset-2 col-3">
         @Html.LabelFor(model => model.LeftHandTimeSelector, htmlAttributes: new { @class = "sr-only" })
-        @Html.EnumDropDownListFor(model => model.LeftHandTimeSelector, htmlAttributes: new { @class = "custom-select form-controls" })
+        @Html.EnumDropDownListFor(model => model.LeftHandTimeSelector, htmlAttributes: new { @class = "custom-select form-controls TimeSelector" })
     </div>
 
-    <div class="offset-1 col-3">
+    <div class="offset-2 col-3">
         @Html.LabelFor(model => model.RightHandTimeSelector, htmlAttributes: new { @class = "sr-only" })
-        @Html.EnumDropDownListFor(model => model.RightHandTimeSelector, htmlAttributes: new { @class = "custom-select form-controls" })
+        @Html.EnumDropDownListFor(model => model.RightHandTimeSelector, htmlAttributes: new { @class = "custom-select form-controls TimeSelector" })
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button hidden type="submit" class="btn btn-primary">Submit</button>
 
 </form>
 <div class="row">
@@ -40,10 +40,10 @@
                                 }
                             </div>
                             @*<div class="col" id="rightHandIncome">
-                                @{
-                                    Html.RenderPartial("_IncomeExpenseTable", Model.RightHandIncome);
-                                }
-                            </div>*@
+                                    @{
+                                        Html.RenderPartial("_IncomeExpenseTable", Model.RightHandIncome);
+                                    }
+                                </div>*@
                         </div>
                     </div>
                 </div>
@@ -63,10 +63,10 @@
                                 }
                             </div>
                             @*<div class="col" id="righttHandExpense">
-                                @{
-                                    Html.RenderPartial("_IncomeExpenseTable", Model.RightHandExpense);
-                                }
-                            </div>*@
+                                    @{
+                                        Html.RenderPartial("_IncomeExpenseTable", Model.RightHandExpense);
+                                    }
+                                </div>*@
                         </div>
                     </div>
                 </div>
@@ -92,8 +92,12 @@
                         </table>
                     </div>
                 </div>
-            </div></div>
+            </div>
+        </div>
     </div>
 </div>
+@section Scripts{
+    @Scripts.Render("~/bundles/form-submit")
+}
 
 
